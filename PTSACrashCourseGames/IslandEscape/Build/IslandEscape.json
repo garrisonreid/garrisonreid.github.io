@@ -1,0 +1,12 @@
+{
+"companyName": "DefaultCompany",
+"productName": "MyLevel",
+"dataUrl": "IslandEscape.data.unityweb",
+"wasmCodeUrl": "IslandEscape.wasm.code.unityweb",
+"wasmFrameworkUrl": "IslandEscape.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
