@@ -1,0 +1,5331 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <style>#map_411731547da047d38f2aff4f6a98aa86 {
+        position: relative;
+        width: 100.0%;
+        height: 100.0%;
+        left: 0.0%;
+        top: 0.0%;
+        }
+    </style>
+</head>
+<body>    
+    
+    <div class="folium-map" id="map_411731547da047d38f2aff4f6a98aa86" ></div>
+</body>
+<script>    
+    
+    
+        var bounds = null;
+    
+
+    var map_411731547da047d38f2aff4f6a98aa86 = L.map(
+        'map_411731547da047d38f2aff4f6a98aa86', {
+        center: [37.508288873563195, -96.07057661494254],
+        zoom: 5,
+        maxBounds: bounds,
+        layers: [],
+        worldCopyJump: false,
+        crs: L.CRS.EPSG3857,
+        zoomControl: true,
+        });
+
+
+    
+    var tile_layer_27a9a7b05e1d4fcab867e6d9682a9802 = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+        "attribution": null,
+        "detectRetina": false,
+        "maxNativeZoom": 18,
+        "maxZoom": 18,
+        "minZoom": 3,
+        "noWrap": false,
+        "opacity": 1,
+        "subdomains": "abc",
+        "tms": false
+}).addTo(map_411731547da047d38f2aff4f6a98aa86);
+    
+            var feature_group_e11d0f1eae37479fa19808a6981c6f24 = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_c916bff4ee3845f19cf6fd1e455bbcc6 = L.circle(
+                [41.724743, -71.440822],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_c916bff4ee3845f19cf6fd1e455bbcc6.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_3da2726d55d74ee68da3a2cf2a7ce3d6 = L.circle(
+                [41.661778, -91.548347],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_3da2726d55d74ee68da3a2cf2a7ce3d6.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cc4fb7667c764a92b78bfbfdff18109e = L.circle(
+                [21.307763, -157.863506],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_cc4fb7667c764a92b78bfbfdff18109e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_5b491630c275474ea47e2e56e9f8d5d7 = L.circle(
+                [29.717448, -95.532536],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_5b491630c275474ea47e2e56e9f8d5d7.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cf7707ba022d42578a1b47998f544e6e = L.circle(
+                [45.732675, -91.615044],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_cf7707ba022d42578a1b47998f544e6e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_60927e243b694cc682e60ce391adc499 = L.circle(
+                [37.231041, -80.421781],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 80000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_60927e243b694cc682e60ce391adc499.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7eb1ba04adb8447790cd90f8098c5f4b = L.circle(
+                [42.099783, -75.917675],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 32500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_7eb1ba04adb8447790cd90f8098c5f4b.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_edc636ffa4db4c7ba129247b7bff4dc4 = L.circle(
+                [34.157803, -118.387291],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_edc636ffa4db4c7ba129247b7bff4dc4.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c088c39f224349f094f0152e3c43035a = L.circle(
+                [37.752774, -122.210281],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_c088c39f224349f094f0152e3c43035a.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_269aaae793e04288818542b4865e795e = L.circle(
+                [34.414281, -119.855546],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_269aaae793e04288818542b4865e795e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0a881ae0bf0c41f488cf181ba01d1249 = L.circle(
+                [44.89969, -89.609301],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#a6cee3",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#a6cee3",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e11d0f1eae37479fa19808a6981c6f24);
+            
+    
+        circle_0a881ae0bf0c41f488cf181ba01d1249.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_f1e8c743ae764a76a9ddbf3f6240a759 = L.circle(
+                [40.076302, -75.537477],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_f1e8c743ae764a76a9ddbf3f6240a759.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_026bda2611674b14894936bb81bc688b = L.circle(
+                [35.837193, -78.643233],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_026bda2611674b14894936bb81bc688b.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_65f66b76e4c541de951db8a26231d348 = L.circle(
+                [30.002426, -90.038906],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_65f66b76e4c541de951db8a26231d348.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_e8cd393c470540a69d72c1a852afc8c8 = L.circle(
+                [32.776822, -97.052636],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_e8cd393c470540a69d72c1a852afc8c8.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_dfb9d4f14630412287b6a9376e03cdf0 = L.circle(
+                [41.864636, -87.667065],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_dfb9d4f14630412287b6a9376e03cdf0.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_032c8eb7e19d42cb89db68526a36068e = L.circle(
+                [30.228111, -81.582884],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 27500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_032c8eb7e19d42cb89db68526a36068e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_18db2872beac4a3a82ff51d585ebb59e = L.circle(
+                [40.979451, -74.116823],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_18db2872beac4a3a82ff51d585ebb59e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_4b6608c441534b1a8de5489cc292cf98 = L.circle(
+                [40.734995, -73.66048],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_4b6608c441534b1a8de5489cc292cf98.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_4927e1af395546419f51ae6cf2263ff7 = L.circle(
+                [39.675379, -104.844762],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_4927e1af395546419f51ae6cf2263ff7.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7983610114e94fd5988bf1526297e670 = L.circle(
+                [37.869875, -106.046711],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_7983610114e94fd5988bf1526297e670.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_907f8af57e234a01beb9ffa6529a89ff = L.circle(
+                [34.054253, -118.230897],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_907f8af57e234a01beb9ffa6529a89ff.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_785cdce27245465eb268caa8a7c67799 = L.circle(
+                [40.856035, -73.867456],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_785cdce27245465eb268caa8a7c67799.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_3be34312f49441798a80de04442c0f09 = L.circle(
+                [26.121323, -80.127909],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_3be34312f49441798a80de04442c0f09.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_375ac2d944c24cc29ec817c23efe552f = L.circle(
+                [32.295464, -90.185127],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_375ac2d944c24cc29ec817c23efe552f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c8b913719ba64119bb1e81844d28e1eb = L.circle(
+                [33.581812, -81.722614],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_c8b913719ba64119bb1e81844d28e1eb.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_72656615df6d4cd29add0deb3e16ab38 = L.circle(
+                [30.245726, -90.924089],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_72656615df6d4cd29add0deb3e16ab38.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_152005edf752407dabc147b70cd083ea = L.circle(
+                [32.850633, -96.993456],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_152005edf752407dabc147b70cd083ea.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_91a2c85eb0524f4b8e205279e9979ed1 = L.circle(
+                [41.810013, -88.107627],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_91a2c85eb0524f4b8e205279e9979ed1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_364035d1ba8c4b90bb4e40804f703b35 = L.circle(
+                [34.719639, -86.602153],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_364035d1ba8c4b90bb4e40804f703b35.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_86573927f426450495d620e72c01161f = L.circle(
+                [33.750525, -84.390822],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_86573927f426450495d620e72c01161f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_d6161ce35da244ddbcca005a24e423fd = L.circle(
+                [30.3895, -91.203905],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_d6161ce35da244ddbcca005a24e423fd.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_8cd426c46a07484ab68acf5c72172722 = L.circle(
+                [38.580089, -90.406908],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_8cd426c46a07484ab68acf5c72172722.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_f185f75ce6e84737a9d57e9a5751f668 = L.circle(
+                [47.153116, -122.467315],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_f185f75ce6e84737a9d57e9a5751f668.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_9d63eabb108d4516bbbad6a530dc088f = L.circle(
+                [41.797974, -72.569984],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_9d63eabb108d4516bbbad6a530dc088f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c4fc882c89924f1586d9437a28a99243 = L.circle(
+                [42.881536, -78.876026],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_c4fc882c89924f1586d9437a28a99243.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_70d1d5d4fa494b9f932a6c5bb3eee68f = L.circle(
+                [47.302572, -122.310662],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_70d1d5d4fa494b9f932a6c5bb3eee68f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7e8e88a460bb413fbb65958b1f1b5dc4 = L.circle(
+                [38.876141, -76.997737],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 30000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_7e8e88a460bb413fbb65958b1f1b5dc4.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_e85ed9c5672946089904d2011140f1d5 = L.circle(
+                [43.28931, -123.332466],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 22500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_e85ed9c5672946089904d2011140f1d5.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_d611a628336c4c9292853cf44701521f = L.circle(
+                [32.779742, -96.805298],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_d611a628336c4c9292853cf44701521f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b7797513c0304927be1a5845650be48d = L.circle(
+                [32.863249, -90.409219],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_b7797513c0304927be1a5845650be48d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_1d5448f8b87341738925770986d1035c = L.circle(
+                [42.402746, -83.159137],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_1d5448f8b87341738925770986d1035c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_d051ddce738641c3a378dcdd22fad3a8 = L.circle(
+                [41.753845, -88.33127],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_d051ddce738641c3a378dcdd22fad3a8.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0954ca58c978432f84fdb2c3ba5c7a01 = L.circle(
+                [36.746599, -76.039092],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 30000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_0954ca58c978432f84fdb2c3ba5c7a01.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_bb85b68021784bd0b1b5b4600cc8f7e9 = L.circle(
+                [40.707135, -74.083691],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_bb85b68021784bd0b1b5b4600cc8f7e9.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_794234f593364a9485f122b841b4d997 = L.circle(
+                [40.706932, -74.083527],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_794234f593364a9485f122b841b4d997.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_9fbe7dee133547c8941df59009a7c5c6 = L.circle(
+                [43.04183, -87.964467],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#1f78b4",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#1f78b4",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e);
+            
+    
+        circle_9fbe7dee133547c8941df59009a7c5c6.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_55b614d82bfa4aceb49dac4c708de261 = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_073f149c0e8946eebd2e71be6a8143a1 = L.circle(
+                [30.609093, -96.325984],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_073f149c0e8946eebd2e71be6a8143a1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_30167a412379460a9c72b688cf16d745 = L.circle(
+                [27.89368, -81.859124],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_30167a412379460a9c72b688cf16d745.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_1c05d347b50840dea45d87aded4c70f7 = L.circle(
+                [33.817491, -117.862546],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_1c05d347b50840dea45d87aded4c70f7.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_622b3187ceef4dd096340729e7c6a79f = L.circle(
+                [27.966351, -82.570586],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_622b3187ceef4dd096340729e7c6a79f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_ea0da597e60f4cdcaaa032a841b2139f = L.circle(
+                [42.345835, -71.199669],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_ea0da597e60f4cdcaaa032a841b2139f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_d51dc0b374dd405d89e9e475c60d614d = L.circle(
+                [41.823192, -87.641205],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_d51dc0b374dd405d89e9e475c60d614d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_9439b4d72ed941438440e152c13b62c2 = L.circle(
+                [48.486147, -122.137243],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_9439b4d72ed941438440e152c13b62c2.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c20946c82579465c8e9a2f32c22fc628 = L.circle(
+                [36.48918, -80.610141],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_c20946c82579465c8e9a2f32c22fc628.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_5c701deae7b0411195e8ea60ecc748dd = L.circle(
+                [25.867517, -80.272819],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_5c701deae7b0411195e8ea60ecc748dd.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_aa08bb7bab9c4b1e8a4bd6e524698158 = L.circle(
+                [39.131471, -119.769453],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_aa08bb7bab9c4b1e8a4bd6e524698158.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_e766e7a5193d4e5590e98dbdd9435648 = L.circle(
+                [25.864324, -80.31155],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_e766e7a5193d4e5590e98dbdd9435648.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_033ce08f2f7f4fb092a7552cf5091e4b = L.circle(
+                [26.072655, -80.143366],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_033ce08f2f7f4fb092a7552cf5091e4b.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_f5ca8636f95043218960d1d740a15bad = L.circle(
+                [38.994239, -76.543615],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_f5ca8636f95043218960d1d740a15bad.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_710391a8979541538278d6939cc8008c = L.circle(
+                [35.348896, -118.916444],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#b2df8a",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#b2df8a",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_55b614d82bfa4aceb49dac4c708de261);
+            
+    
+        circle_710391a8979541538278d6939cc8008c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_09f97dd75bb94adebdcf89a7ee606465 = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_673d959ff915494e8c85ad0b520a24a3 = L.circle(
+                [31.128195, -97.746948],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#33a02c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#33a02c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 32500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_09f97dd75bb94adebdcf89a7ee606465);
+            
+    
+        circle_673d959ff915494e8c85ad0b520a24a3.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b1a908325355408a9aabf1da403d815e = L.circle(
+                [34.018767, -118.470401],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#33a02c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#33a02c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_09f97dd75bb94adebdcf89a7ee606465);
+            
+    
+        circle_b1a908325355408a9aabf1da403d815e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_a3db23e1281b423a90d2fd2dc9531d0d = L.circle(
+                [35.095083, -85.253423],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#33a02c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#33a02c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_09f97dd75bb94adebdcf89a7ee606465);
+            
+    
+        circle_a3db23e1281b423a90d2fd2dc9531d0d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0daf40a77eb24a83a4002803b59190f7 = L.circle(
+                [34.075766, -117.277467],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#33a02c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#33a02c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 35000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_09f97dd75bb94adebdcf89a7ee606465);
+            
+    
+        circle_0daf40a77eb24a83a4002803b59190f7.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_a7c995659516483e93fbdaeed6835f77 = L.circle(
+                [34.075766, -117.277467],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#33a02c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#33a02c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 35000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_09f97dd75bb94adebdcf89a7ee606465);
+            
+    
+        circle_a7c995659516483e93fbdaeed6835f77.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_57d391247d7c4f5abc5b7b1080c894e9 = L.circle(
+                [28.519632, -81.376525],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#33a02c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#33a02c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 122500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_09f97dd75bb94adebdcf89a7ee606465);
+            
+    
+        circle_57d391247d7c4f5abc5b7b1080c894e9.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c79b26b622534e9ab61824996ce88a49 = L.circle(
+                [48.464723, -122.337055],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#33a02c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#33a02c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_09f97dd75bb94adebdcf89a7ee606465);
+            
+    
+        circle_c79b26b622534e9ab61824996ce88a49.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_74c57841cb624d4bbce40863c3be9e12 = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_b2cf73729d0340b580fddce13de127e1 = L.circle(
+                [46.522175, -90.156243],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_b2cf73729d0340b580fddce13de127e1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_a44ce7571c984e9c9edbdb16fe306ce8 = L.circle(
+                [40.782387, -73.981148],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_a44ce7571c984e9c9edbdb16fe306ce8.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_e69cda7434274b60b5c7deb5b30966cc = L.circle(
+                [39.992289, -79.589079],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_e69cda7434274b60b5c7deb5b30966cc.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_8a40a3e915cc48e2a3ece3b6d0d3904d = L.circle(
+                [37.803283, -84.860707],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_8a40a3e915cc48e2a3ece3b6d0d3904d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_fb15d099c1de463cbed5816774d7c44f = L.circle(
+                [42.377164, -76.870943],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_fb15d099c1de463cbed5816774d7c44f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_91c031ca2f0b41368b1849366dda274f = L.circle(
+                [27.827829, -97.548255],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_91c031ca2f0b41368b1849366dda274f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_82060f2d04f240d2adf58bcf478a60f8 = L.circle(
+                [41.708898, -86.30507],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_82060f2d04f240d2adf58bcf478a60f8.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cb2b5b9895344c8db9c57360f67310af = L.circle(
+                [39.096158, -94.684427],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_cb2b5b9895344c8db9c57360f67310af.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0826f4eabebf4db8ba48375054324dea = L.circle(
+                [33.734687, -95.911382],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_0826f4eabebf4db8ba48375054324dea.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_6afece7d8d7b479fbbeefa5859374168 = L.circle(
+                [40.4382, -79.87292],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_6afece7d8d7b479fbbeefa5859374168.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_fd406c42c1e642f29d7e45267e5dd1fd = L.circle(
+                [40.05335, -89.19891],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fb9a99",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fb9a99",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_74c57841cb624d4bbce40863c3be9e12);
+            
+    
+        circle_fd406c42c1e642f29d7e45267e5dd1fd.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_83e54fffa99c4f31afae7420f588727f = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_f0bb01f2befe4229a66ef3caa79a2153 = L.circle(
+                [47.875963, -94.972129],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#e31a1c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#e31a1c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 22500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_83e54fffa99c4f31afae7420f588727f);
+            
+    
+        circle_f0bb01f2befe4229a66ef3caa79a2153.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_224875f01d94439f8345ec5ce732f41b = L.circle(
+                [41.483995, -120.545373],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#e31a1c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#e31a1c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_83e54fffa99c4f31afae7420f588727f);
+            
+    
+        circle_224875f01d94439f8345ec5ce732f41b.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_35fb28ff85cb4ca9bdcf5996ec63d5f6 = L.circle(
+                [48.095825, -122.154041],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#e31a1c",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#e31a1c",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_83e54fffa99c4f31afae7420f588727f);
+            
+    
+        circle_35fb28ff85cb4ca9bdcf5996ec63d5f6.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_e45e10ac44f04257ab4bde81d87cf538 = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_96ec1a7a94f845508936c4b6a01bdd2c = L.circle(
+                [32.781179, -96.790329],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fdbf6f",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fdbf6f",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e45e10ac44f04257ab4bde81d87cf538);
+            
+    
+        circle_96ec1a7a94f845508936c4b6a01bdd2c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0ce990a5a3094ef0b8a51955454b5da7 = L.circle(
+                [40.756249, -111.871209],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#fdbf6f",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#fdbf6f",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_e45e10ac44f04257ab4bde81d87cf538);
+            
+    
+        circle_0ce990a5a3094ef0b8a51955454b5da7.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var feature_group_33ddf2d9987a465c97cd1c225fbee685 = L.featureGroup(
+                ).addTo(map_411731547da047d38f2aff4f6a98aa86);
+        
+    
+
+            var circle_9050860c02944faa85dc26c999caf8e4 = L.circle(
+                [30.286095, -97.739297],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 37500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_9050860c02944faa85dc26c999caf8e4.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cdf89be64df74475bfaf27aa0d6b3259 = L.circle(
+                [33.459937, -111.7819],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_cdf89be64df74475bfaf27aa0d6b3259.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_dff906770483475fb987ba132fa40abe = L.circle(
+                [38.940604, -90.288168],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_dff906770483475fb987ba132fa40abe.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_e4202d605ee348bca1b13e8ef8c075b8 = L.circle(
+                [42.614852, -73.970812],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_e4202d605ee348bca1b13e8ef8c075b8.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cd0deff5fdcc42b6b31b5f4aea3259ac = L.circle(
+                [39.927991, -74.994341],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_cd0deff5fdcc42b6b31b5f4aea3259ac.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_d334ef86852e462e8bda97d93c7494f4 = L.circle(
+                [41.949285, -124.199492],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_d334ef86852e462e8bda97d93c7494f4.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7007c446f3ee4ee4aec043ebf165b025 = L.circle(
+                [33.879942, -117.885447],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_7007c446f3ee4ee4aec043ebf165b025.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c856e5dc6ce6470183d7ec8f63bfe257 = L.circle(
+                [40.899336, -73.792778],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_c856e5dc6ce6470183d7ec8f63bfe257.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_376ac0ccfe8d480ca2e8d66a685e3f66 = L.circle(
+                [42.140888, -121.680308],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_376ac0ccfe8d480ca2e8d66a685e3f66.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_43ec4f6fbc9248e79c3f2d33b6cdccb1 = L.circle(
+                [40.840175, -74.825526],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_43ec4f6fbc9248e79c3f2d33b6cdccb1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_812baa75d6154e0abc11da8ba737a027 = L.circle(
+                [31.895472, -106.410952],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_812baa75d6154e0abc11da8ba737a027.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c681a7fc55f9470f89e5178c761c7b75 = L.circle(
+                [33.030971, -94.723466],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_c681a7fc55f9470f89e5178c761c7b75.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_4bfc0f2087b840d688f39f7d407a9a92 = L.circle(
+                [40.5171, -80.164948],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_4bfc0f2087b840d688f39f7d407a9a92.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_75690a5af9ef4ed0a8fd8a54773c5a1d = L.circle(
+                [44.960783, -123.034276],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_75690a5af9ef4ed0a8fd8a54773c5a1d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_6886fdf06ffd4f2499a1610ee19383d9 = L.circle(
+                [37.600073, -82.721784],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_6886fdf06ffd4f2499a1610ee19383d9.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_f09ffb59cab24bc2bd24b06de691e62c = L.circle(
+                [61.206063, -149.788738],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_f09ffb59cab24bc2bd24b06de691e62c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c284b15f49fb4b06a3c466e6cbc8b652 = L.circle(
+                [25.799041, -80.246857],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_c284b15f49fb4b06a3c466e6cbc8b652.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c6237bacf01c4aae9e6e16a1bca5bd6c = L.circle(
+                [61.433333, -142.921667],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_c6237bacf01c4aae9e6e16a1bca5bd6c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b0487d55b7964160b1985a81f729c340 = L.circle(
+                [65.0187, -150.6478],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_b0487d55b7964160b1985a81f729c340.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_aa818b584c344a6ca136c78318467589 = L.circle(
+                [32.544361, -117.029121],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 52500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_aa818b584c344a6ca136c78318467589.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_d75db268408c456b9481ca28f2b19292 = L.circle(
+                [34.504169, -93.054887],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_d75db268408c456b9481ca28f2b19292.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_8d40117e0d074e49ab60af35e0cc6878 = L.circle(
+                [35.657238, -97.480943],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 35000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_8d40117e0d074e49ab60af35e0cc6878.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7c4c5057256247a49bba0d2e69e21544 = L.circle(
+                [28.03458, -80.62168],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_7c4c5057256247a49bba0d2e69e21544.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_e19aa4631c93436580cd65b54a3d2133 = L.circle(
+                [37.410141, -122.01158],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_e19aa4631c93436580cd65b54a3d2133.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b242335301d64e06985646c8b8db8237 = L.circle(
+                [35.999209, -80.274421],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_b242335301d64e06985646c8b8db8237.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_8ecce56c581c43e99015a20174da4220 = L.circle(
+                [37.982157, -121.302097],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_8ecce56c581c43e99015a20174da4220.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_227b4f2b89f24b5982b4ae8bdd5c8bbe = L.circle(
+                [38.248225, -85.760896],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 22500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_227b4f2b89f24b5982b4ae8bdd5c8bbe.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_bb03b9f2d6c744c9ad96ebac0553f222 = L.circle(
+                [31.093555, -97.723877],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 57500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_bb03b9f2d6c744c9ad96ebac0553f222.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_e3106919752d496395498f951567af01 = L.circle(
+                [42.489354, -83.146058],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_e3106919752d496395498f951567af01.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cb830927635247069b84933cb1f40800 = L.circle(
+                [33.446797, -111.953512],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_cb830927635247069b84933cb1f40800.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_1598e26731d04a35b50f01de9ee4f0f2 = L.circle(
+                [39.084469, -121.534431],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_1598e26731d04a35b50f01de9ee4f0f2.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b051699ed2fa4793807e71f0c275d29f = L.circle(
+                [35.644773, -120.687044],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_b051699ed2fa4793807e71f0c275d29f.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7bae9b3c0adf47d986665804c309eda1 = L.circle(
+                [37.79304, -122.398032],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_7bae9b3c0adf47d986665804c309eda1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_9fe15be0269b49f0bf9da086146a417c = L.circle(
+                [35.076877, -78.953827],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_9fe15be0269b49f0bf9da086146a417c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_92688fe2cb3e488689cf64339cec48a0 = L.circle(
+                [32.804379, -116.972996],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_92688fe2cb3e488689cf64339cec48a0.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_452ea1706cfe401db9bd9fc1dacb6dc1 = L.circle(
+                [34.257966, -119.226554],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_452ea1706cfe401db9bd9fc1dacb6dc1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_23c0225cb5e44c85a46957431de1c607 = L.circle(
+                [47.633161, -117.654603],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_23c0225cb5e44c85a46957431de1c607.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_427b6f452da944c78d3d3a97482b4b90 = L.circle(
+                [44.891664, -71.497782],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_427b6f452da944c78d3d3a97482b4b90.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_6804c15562054a03aa51ae51c6726027 = L.circle(
+                [41.644255, -72.672733],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_6804c15562054a03aa51ae51c6726027.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_f911cc8c56794b9db65118e63b4d208d = L.circle(
+                [35.857012, -90.805986],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_f911cc8c56794b9db65118e63b4d208d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_17fe864b83814115a2fa7bca52fc3e89 = L.circle(
+                [35.857012, -90.805986],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_17fe864b83814115a2fa7bca52fc3e89.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_f227a8ae26b94f9785c4d9d31195dbf0 = L.circle(
+                [44.049249, -122.925177],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_f227a8ae26b94f9785c4d9d31195dbf0.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_1c68220dee1e48cf9455cd2a4d61255b = L.circle(
+                [39.60396, -105.07407],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 32500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_1c68220dee1e48cf9455cd2a4d61255b.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7df60d5f12314a4a82f2932e18191b93 = L.circle(
+                [39.60396, -105.07407],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 32500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_7df60d5f12314a4a82f2932e18191b93.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0a543e5728ed43d5998d8ee464b28f11 = L.circle(
+                [36.115388, -115.135914],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_0a543e5728ed43d5998d8ee464b28f11.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7435a68fc87b47fd867aeff33b5d3a9c = L.circle(
+                [33.849827, -84.377419],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 30000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_7435a68fc87b47fd867aeff33b5d3a9c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_3ec28cdf10d74682a45c6c97490e7516 = L.circle(
+                [32.664911, -97.384486],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_3ec28cdf10d74682a45c6c97490e7516.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c0b9c880a36d48a2b87a737b09262560 = L.circle(
+                [40.454242, -80.169179],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_c0b9c880a36d48a2b87a737b09262560.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_5755977c6bfa4553b6d294c5962f3b0d = L.circle(
+                [39.552052, -107.783557],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_5755977c6bfa4553b6d294c5962f3b0d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_89b681dd604a4d21a44a2aca5d6c89d1 = L.circle(
+                [38.563178, -121.517551],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_89b681dd604a4d21a44a2aca5d6c89d1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_996d34f239444e719c5c85f13eb9e53b = L.circle(
+                [32.413933, -88.653287],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_996d34f239444e719c5c85f13eb9e53b.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_fba59aecc5f6472781d3fef538dbd5af = L.circle(
+                [48.183621, -117.039097],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_fba59aecc5f6472781d3fef538dbd5af.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_64f91577c066470682a460325d9d2185 = L.circle(
+                [40.06856, -82.998787],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_64f91577c066470682a460325d9d2185.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_25a921de47d7446eb320eb8977d9ac08 = L.circle(
+                [43.027257, -88.10821],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_25a921de47d7446eb320eb8977d9ac08.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b930503ca1874ec181b42ca689be968a = L.circle(
+                [34.42519, -119.866988],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_b930503ca1874ec181b42ca689be968a.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_43dfa179587b4e59802b7d460c6ae881 = L.circle(
+                [47.623358, -122.304074],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_43dfa179587b4e59802b7d460c6ae881.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cb9f3415ca4c44a0947489d3b5fda484 = L.circle(
+                [39.960243, -76.084459],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_cb9f3415ca4c44a0947489d3b5fda484.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_7d5fa25481c94ea2bebeea632eb6a3c3 = L.circle(
+                [41.264845, -96.065637],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_7d5fa25481c94ea2bebeea632eb6a3c3.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_00875709948246a4b13ce9b058f2a630 = L.circle(
+                [39.810645, -105.141829],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_00875709948246a4b13ce9b058f2a630.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_af62320b2ff4463db288434bfd42d827 = L.circle(
+                [41.92947, -88.75036],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_af62320b2ff4463db288434bfd42d827.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0318674976d049728f77eda348d35ea1 = L.circle(
+                [34.932012, -120.489946],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_0318674976d049728f77eda348d35ea1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b450449213004c07a38d47473b4155de = L.circle(
+                [37.804419, -87.639753],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_b450449213004c07a38d47473b4155de.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_12b36f5dc215453d8b3f0e456bd32d42 = L.circle(
+                [35.33332, -79.414716],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_12b36f5dc215453d8b3f0e456bd32d42.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_35477d570f354b30b1c6709bc3b00fd1 = L.circle(
+                [37.550562, -83.13484],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_35477d570f354b30b1c6709bc3b00fd1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_f65a1ea81c0c455aa6a4d32a0f81d60d = L.circle(
+                [32.335997, -110.977334],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_f65a1ea81c0c455aa6a4d32a0f81d60d.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_6e275f9350d848398686b68c543a534a = L.circle(
+                [41.040524, -81.497666],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_6e275f9350d848398686b68c543a534a.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b236bddf9b5548ce99105d85ca46840e = L.circle(
+                [33.745338, -118.106315],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 20000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_b236bddf9b5548ce99105d85ca46840e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_da2c6a7a9fe04970b8933e992626e7b1 = L.circle(
+                [47.671444, -122.317073],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_da2c6a7a9fe04970b8933e992626e7b1.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_4049cd1e88d148d585472a1a9f1480d2 = L.circle(
+                [39.706129, -104.821276],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 30000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_4049cd1e88d148d585472a1a9f1480d2.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_0c9f91151fd343ff9c87fc24577ee349 = L.circle(
+                [42.90798, -87.908477],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_0c9f91151fd343ff9c87fc24577ee349.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_a5324609635b4a97aa0cabf4ef229336 = L.circle(
+                [44.977255, -93.310171],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_a5324609635b4a97aa0cabf4ef229336.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_5e50b0a745234801b5914708a57bf215 = L.circle(
+                [41.358402, -73.155545],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 67500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_5e50b0a745234801b5914708a57bf215.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_c71bd79990054dc99e8b5deb8663f39c = L.circle(
+                [43.024969, -74.98537],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_c71bd79990054dc99e8b5deb8663f39c.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_bd2c0113afc2418bb34f3a82090a89b0 = L.circle(
+                [32.78744, -79.933035],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 22500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_bd2c0113afc2418bb34f3a82090a89b0.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_a3fdb78a664342f9adf02ec9e12bda9e = L.circle(
+                [30.562982, -95.981285],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_a3fdb78a664342f9adf02ec9e12bda9e.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_2ab71167ac1144df930984a7e8bb3064 = L.circle(
+                [42.235358, -85.676357],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 15000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_2ab71167ac1144df930984a7e8bb3064.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_6cc9f14d81d742ff9f0a846a69f73409 = L.circle(
+                [28.579863, -81.293652],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_6cc9f14d81d742ff9f0a846a69f73409.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_b380806a17a945ad92b1fd0bb4f96128 = L.circle(
+                [36.08995, -115.176572],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 145000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_b380806a17a945ad92b1fd0bb4f96128.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_943ab5712d654fd3b4d082db8fb92dbd = L.circle(
+                [29.273072, -98.056559],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 62500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_943ab5712d654fd3b4d082db8fb92dbd.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_eaf82bba593c46d7af90284d150f45cb = L.circle(
+                [40.018481, -122.389547],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_eaf82bba593c46d7af90284d150f45cb.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_38572c6a86c44b5c906fdc600901ae04 = L.circle(
+                [0.0, 0.0],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_38572c6a86c44b5c906fdc600901ae04.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_79b8a31106b541e7bdddcaf8c3a60a03 = L.circle(
+                [26.303208, -80.266995],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 42500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_79b8a31106b541e7bdddcaf8c3a60a03.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_5ec54d851c784b879b6ac08c712259a9 = L.circle(
+                [36.051639, -86.616286],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 10000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_5ec54d851c784b879b6ac08c712259a9.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_ea421c305ed04884990f3ce619d09926 = L.circle(
+                [29.392409, -95.140607],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 25000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_ea421c305ed04884990f3ce619d09926.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_8c23965e2b324baf98880e2059cde960 = L.circle(
+                [40.44358, -79.921239],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 27500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_8c23965e2b324baf98880e2059cde960.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_a72cc8a760874ca4a499c91fd7df95aa = L.circle(
+                [34.176338, -118.874599],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 30000.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_a72cc8a760874ca4a499c91fd7df95aa.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_571d74b9a8764b39bdf234260beb4aa7 = L.circle(
+                [27.470544, -81.458486],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 12500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_571d74b9a8764b39bdf234260beb4aa7.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_cb0a9ac7704047b7bd577c3d57752a21 = L.circle(
+                [31.776485, -106.387654],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 57500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_cb0a9ac7704047b7bd577c3d57752a21.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_a0739afc43ba4ecda88eed8327a15987 = L.circle(
+                [39.757057, -84.184714],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 22500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_a0739afc43ba4ecda88eed8327a15987.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+
+            var circle_bff007ae19af4c9ca97efba90861204a = L.circle(
+                [31.896241, -102.321351],
+                {
+  "bubblingMouseEvents": true,
+  "color": "#ff7f00",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#ff7f00",
+  "fillOpacity": 0.75,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "opacity": 1.0,
+  "radius": 17500.0,
+  "stroke": false,
+  "weight": 3
+}
+                )
+                .addTo(feature_group_33ddf2d9987a465c97cd1c225fbee685);
+            
+    
+        circle_bff007ae19af4c9ca97efba90861204a.bindTooltip(
+            `<div>`
+            + `<strong>Date: </strong>9/3/2016<br><strong>Address: </strong>1304 Franklin Ave, Wilkinsburg, PA 15221<br><strong>Number Killed: </strong>5<br><strong>Race: </strong>N/A<br><strong>Age: </strong>nan<br><strong>Specify Other Weapons or Gear: </strong>N/A` + `</div>`,
+            {"sticky": true}
+        );
+        
+    
+            var layer_control_97639c0698024e50badcad92b980e992 = {
+                base_layers : {  },
+                overlays : { "Asian" : feature_group_e11d0f1eae37479fa19808a6981c6f24,"Black" : feature_group_a3a5d9c0f32e4c77b0c0fa3ad6fa232e,"LatinX" : feature_group_55b614d82bfa4aceb49dac4c708de261,"Middle Eastern" : feature_group_09f97dd75bb94adebdcf89a7ee606465,"N/A" : feature_group_74c57841cb624d4bbce40863c3be9e12,"Native American" : feature_group_83e54fffa99c4f31afae7420f588727f,"Other" : feature_group_e45e10ac44f04257ab4bde81d87cf538,"White" : feature_group_33ddf2d9987a465c97cd1c225fbee685, }
+                };
+            L.control.layers(
+                layer_control_97639c0698024e50badcad92b980e992.base_layers,
+                layer_control_97639c0698024e50badcad92b980e992.overlays,
+                {position: 'topright',
+                 collapsed: false,
+                 autoZIndex: true
+                }).addTo(map_411731547da047d38f2aff4f6a98aa86);
+            
+        
+</script>
