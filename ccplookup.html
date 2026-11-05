@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NC Course Catalog Explorer</title>
+<style>
+  :root { color-scheme: light; --ink:#182230; --muted:#667085; --line:#e4e7ec; --blue:#2457a7; --bg:#f6f8fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--ink); background:var(--bg); }
+  header { background:#fff; border-bottom:1px solid var(--line); padding:24px clamp(16px,4vw,42px) 18px; }
+  h1 { margin:0 0 4px; font-size:clamp(22px,3vw,30px); letter-spacing:-.02em; }
+  .subtitle { color:var(--muted); margin:0; }
+  main { max-width:1550px; margin:0 auto; padding:22px clamp(12px,3vw,32px) 40px; }
+  .controls { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px; display:grid; grid-template-columns:minmax(220px,2fr) repeat(3,minmax(150px,1fr)) auto; gap:12px; align-items:end; }
+  label { display:block; color:#475467; font-size:12px; font-weight:650; margin:0 0 6px; }
+  input,select,button { width:100%; min-height:40px; border:1px solid #cfd5df; border-radius:8px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+  input:focus,select:focus,button:focus { outline:3px solid #d8e6ff; border-color:var(--blue); }
+  button { cursor:pointer; font-weight:600; }
+  button:hover { background:#f2f6fc; }
+  .reset { width:auto; white-space:nowrap; }
+  .summary { display:flex; justify-content:space-between; gap:12px; align-items:center; margin:16px 2px 10px; color:var(--muted); font-size:13px; }
+  .table-wrap { overflow:auto; background:#fff; border:1px solid var(--line); border-radius:12px; }
+  table { border-collapse:collapse; width:100%; min-width:1150px; }
+  th,td { text-align:left; padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:middle; }
+  th { position:sticky; top:0; z-index:1; background:#f8fafc; color:#475467; font-size:12px; letter-spacing:.02em; white-space:nowrap; }
+  th button { border:0; background:transparent; padding:0; min-height:unset; width:auto; color:inherit; font:inherit; font-weight:700; text-align:left; }
+  th button:hover { color:var(--blue); background:transparent; }
+  tbody tr:hover { background:#f8fbff; }
+  tbody tr:last-child td { border-bottom:0; }
+  .code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; color: #344054; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; border: 1px solid #e2e8f0; }
+  
+  /* Badge Base Styling */
+  .pill { display:inline-block; border-radius:999px; padding:3px 10px; font-size:12px; font-weight:600; white-space:nowrap; }
+
+  /* CAA Eligibility Badges */
+  .pill-caa[data-caa="Eligible"] { background:#eef4ff; color:#244b87; }
+  .pill-caa[data-caa="Non-transfer"] { background:#f3f4f6; color:#4b5563; }
+
+  /* Unique Color-Coded Course Weights */
+  .pill-weight[data-weight="AP/Advanced"] { background:#f3e8ff; color:#6b21a8; border:1px solid #e9d5ff; }
+  .pill-weight[data-weight="Honors"] { background:#fef3c7; color:#92400e; border:1px solid #fde68a; }
+  .pill-weight[data-weight="Standard"] { background:#f1f5f9; color:#475467; border:1px solid #e2e8f0; }
+
+  /* Unique Color-Coded Departments */
+  .pill-dept[data-dept="Arts Ed"] { background:#ffe4e6; color:#9f1239; }
+  .pill-dept[data-dept="Science"] { background:#d1fae5; color:#065f46; }
+  .pill-dept[data-dept="CTE"] { background:#dbeafe; color:#1e40af; }
+  .pill-dept[data-dept="Soc Stud"] { background:#ffedd5; color:#9a3412; }
+  .pill-dept[data-dept="ELA"] { background:#ccfbf1; color:#115e59; }
+  .pill-dept[data-dept="World Lang"] { background:#ede9fe; color:#5b21b6; }
+  .pill-dept[data-dept="Math"] { background:#e0e7ff; color:#3730a3; }
+  .pill-dept[data-dept="Hlth & PE"] { background:#e0f2fe; color:#0369a1; }
+  .pill-dept[data-dept="Misc"] { background:#f3f4f6; color:#374151; }
+
+  .empty { padding:36px; text-align:center; color:var(--muted); }
+  .pagination { display:flex; align-items:center; justify-content:flex-end; gap:8px; margin-top:12px; }
+  .pagination button { width:auto; min-width:82px; }
+  .pagination button:disabled { opacity:.4; cursor:not-allowed; }
+  .page-label { color:var(--muted); font-size:13px; min-width:100px; text-align:center; }
+  @media (max-width:850px) { .controls { grid-template-columns:1fr 1fr; } .search-field { grid-column:1/-1; } .reset { width:100%; } }
+  @media (max-width:520px) { .controls { grid-template-columns:1fr; } .search-field { grid-column:auto; } .summary { align-items:flex-start; flex-direction:column; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>NC Course Catalog Explorer</h1>
+  <p class="subtitle">Search, filter, and browse all 527 courses with complete State Code data.</p>
+</header>
+<main>
+  <section class="controls" aria-label="Catalog filters">
+    <div class="search-field">
+      <label for="search">Search all fields</label>
+      <input id="search" type="search" placeholder="State code, course name, code, department…" autocomplete="off">
+    </div>
+    <div><label for="department">Department</label><select id="department"><option value="">All departments</option></select></div>
+    <div><label for="caa">CAA eligibility</label><select id="caa"><option value="">All statuses</option></select></div>
+    <div><label for="weight">Course weight</label><select id="weight"><option value="">All weights</option></select></div>
+    <button class="reset" id="reset" type="button">Clear filters</button>
+  </section>
+
+  <div class="summary">
+    <div id="count" aria-live="polite"></div>
+    <div>Tip: select any column heading to sort.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr>
+        <th><button data-sort="state_code">State code ↕</button></th>
+        <th><button data-sort="course_code">Course code ↕</button></th>
+        <th><button data-sort="course_name">Course name ↕</button></th>
+        <th><button data-sort="department">Department ↕</button></th>
+        <th><button data-sort="caa_label">CAA eligibility ↕</button></th>
+        <th><button data-sort="credit">Credit ↕</button></th>
+        <th><button data-sort="course_weight">Course weight ↕</button></th>
+        <th><button data-sort="master_label">Master label ↕</button></th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <div class="empty" id="empty" hidden>No courses match your search and filters.</div>
+  </div>
+  <div class="pagination">
+    <button id="previous" type="button">Previous</button>
+    <span class="page-label" id="page"></span>
+    <button id="next" type="button">Next</button>
+  </div>
+</main>
+<script>
+const depts = ["Arts Ed", "CTE", "ELA", "Hlth & PE", "Math", "Misc", "Science", "Soc Stud", "World Lang"];
+const weights = ["Standard", "AP/Advanced", "Honors"];
+
+// Reconstitute full dataset dynamically
+const rawData = [
+  [1,"0C552X0","ACA122","ACA122 COLL TRANS SUCCESS","Comm Coll Less than 3 Sem Hrs",1,0,0.0,0,5],
+  [2,"5C015X0","ART111","ART111 Art Appreciation","ART111 Art Appreciation",1,1,1.0,1,0],
+  [3,"3C175X0","BIO168","BIO168 Anatomy & Physiology I","BIO168 Anatomy & Physiology I",1,1,1.0,1,6],
+  [4,"3C185X0","BIO169","BIO169 Anatomy & Physiology II","BIO169 Anatomy & Physiology II",1,1,1.0,1,6],
+  [5,"BW145X0","BUS110","BUS110 Introduction to Busines","BUS110 Introduction to Busines",1,1,1.0,1,1],
+  [6,"0C015X0","COM231","COM231 Public Speaking","COM231 Public Speaking",1,1,1.0,1,5],
+  [7,"4C015X0","ECO251","ECO251 Prin of Microeconomics","ECO251 Prin of Microeconomics",1,1,1.0,1,7],
+  [8,"4C025X0","ECO252","ECO252 Prin of Macroeconomics","ECO252 Prin of Macroeconomics",1,1,1.0,1,7],
+  [9,"1C025X0","ENG111","ENG111 Writing and Inquiry","ENG111 Writing and Inquiry",1,1,1.0,1,2],
+  [10,"1C035X0","ENG112","ENG112 Writing/Research Dsplns","ENG112 Writing/Research Dsplns",1,1,1.0,1,2],
+  [11,"WD052X0","GRD167","GRD167 PHOTOGRAPHIC IMAGING I","CCP ARED I",0,1,0.0,0,1],
+  [12,"WD062X0","GRD168","GRD168 PHOTOGRAPHIC IMAGING II","CCP ARED II",0,1,0.0,0,1],
+  [13,"4C055X0","HIS131","HIS131 American History I","HIS131 American History I",1,1,1.0,1,7],
+  [14,"4C065X0","HIS132","HIS132 American History II","HIS132 American History II",1,1,1.0,1,7],
+  [15,"2C035X0","MAT171","MAT171 Precalculus Algebra","MAT171 Precalculus Algebra",1,1,1.0,1,4],
+  [16,"0U007X0","MAT341","MAT341 APPL DIFF EQUAT 1 NCSU","Univ 300HigherCourseOtherCont.",0,1,1.0,1,5],
+  [17,"2U007X0","MAT520","MAT520 LINEAR ALGEBRA (NCSU)","Univ 300/Higher Math Course",0,1,1.0,1,4],
+  [18,"2U007X0","MAT577","MAT577 LINEAR ALGEBRA (UNC)","Univ 300/Higher Math Course",0,1,1.0,1,4],
+  [19,"5C045X0","MUS110","MUS110 Music Appreciation","MUS110 Music Appreciation",1,1,1.0,1,0],
+  [20,"WD052X0","PHO222","PHO222 VIDEO PRODUCTION","CCP ARED I",0,1,0.0,0,1],
+  [21,"WD062X0","PHO242","PHO242 DIGITAL VIDEO EDITING","CCP ARED II",0,1,0.0,0,1],
+  [22,"4C085X0","PSY150","PSY150 General Psychology","PSY150 General Psychology",1,1,1.0,1,7],
+  [23,"4C095X0","SOC210","SOC210 Intro to Sociology","SOC210 Intro to Sociology",1,1,1.0,1,7],
+  [24,"WD112X0","SPI113","SPI113 INTRO SPAN INTERP","CCP EDUC I",0,1,0.0,0,1],
+  [25,"BW035X0","ACC120","ACC120 Princ of Fin Accounting","ACC120 Princ of Fin Accounting",1,1,1.0,1,1],
+  [26,"5C025X0","ART114","ART114 Art History Survey I","ART114 Art History Survey I",1,1,1.0,1,0],
+  [27,"3C035X0","AST151","AST151 General Astronomy I","AST151 General Astronomy I",1,1,1.0,1,6],
+  [28,"WD272X0","AUT151","AUT151 BRAKE SYSTEMS DTCC","CCP SCTR I",0,1,0.0,0,1],
+  [29,"CU005X0","AVI100","AVI100 INTRO TO AVIATION","CTE University Course",0,1,1.0,1,1],
+  [30,"3C055X0","BIO110","BIO110 Principles of Biology","BIO110 Principles of Biology",1,1,1.0,1,6],
+  [31,"3C065X0","BIO111","BIO111 General Biology I","BIO111 General Biology I",1,1,1.0,1,6],
+  [32,"BW155X0","BUS115","BUS115 Business Law I","BUS115 Business Law I",1,1,1.0,1,1],
+  [33,"BW205X0","BUS137","BUS137 Prin of Management","BUS137 Prin of Management",1,1,1.0,1,1],
+  [34,"3C085X0","CHM151","CHM151 General Chemistry I","CHM151 General Chemistry I",1,1,1.0,1,6],
+  [35,"BW325X0","CIS110","CIS110 Intro to Computers","CIS110 Intro to Computers",1,1,1.0,1,1],
+  [36,"0C085X0","COM120","COM120 Intro Interpersonal Com","COM120 Intro Interpersonal Com",1,1,1.0,1,7],
+  [37,"5C115X0","DRA111","DRA111 Theatre Appreciation","DRA111 Theatre Appreciation",1,1,1.0,1,0],
+  [38,"1C075X0","ENG231","ENG231 American Literature I","ENG231 American Literature I",1,1,1.0,1,2],
+  [39,"1C085X0","ENG232","ENG232 American Literature II","ENG232 American Literature II",1,1,1.0,1,2],
+  [40,"1C115X0","ENG241","ENG241 British Literature I","ENG241 British Literature I",1,1,1.0,1,2],
+  [41,"1C125X0","ENG242","ENG242 British Literature II","ENG242 British Literature II",1,1,1.0,1,2],
+  [42,"0U005X0","FLT110","FLT110 PRIV PILOT GROUND ECSU","FLT110 PRIV PILOT GROUND ECSU",0,1,1.0,1,5],
+  [43,"1C265X0","FRE111","FRE111 Elementary French I","FRE111 Elementary French I",1,1,1.0,1,8],
+  [44,"3C105X0","GEL111","GEL111 Introductory Geology","GEL111 Introductory Geology",1,1,1.0,1,6],
+  [45,"1C865X0","GER111","GER111 Elementary German I","GER111 Elementary German I",1,1,1.0,1,8],
+  [46,"2C025X0","MAT152","MAT152 Statistical Methods I","MAT152 Statistical Methods I",1,1,1.0,1,4],
+  [47,"2C045X0","MAT172","MAT172 Precalc Trigonometry","MAT172 Precalc Trigonometry",1,1,1.0,1,4],
+  [48,"2C065X0","MAT271","MAT271 Calculus I","MAT271 Calculus I",1,1,1.0,1,4],
+  [49,"2C075X0","MAT272","MAT272 Calculus II","MAT272 Calculus II",1,1,1.0,1,4],
+  [50,"5C055X0","MUS112","MUS112 Introduction to Jazz","MUS112 Introduction to Jazz",1,1,1.0,1,0],
+  [51,"0C065X0","PHI215","PHI215 Philosophical Issues","PHI215 Philosophical Issues",1,1,1.0,1,7],
+  [52,"0C075X0","PHI240","PHI240 Introduction to Ethics","PHI240 Introduction to Ethics",1,1,1.0,1,7],
+  [53,"4C075X0","POL120","POL120 American Government","POL120 American Government",1,1,1.0,1,7],
+  [54,"4C135X0","PSY241","PSY241 Developmental Psych","PSY241 Developmental Psych",1,1,1.0,1,7],
+  [55,"1U255X0","ROM101","ROM101 ELEM ROMANIAN LANG/CULT (OTHER))","University World Language",0,1,1.0,1,8],
+  [56,"3C325X0","BIO163","BIO163 Basic Anat & Physiology","BIO163 Basic Anat & Physiology",1,2,1.0,1,6],
+  [57,"3C095X0","CHM152","CHM152 General Chemistry II","CHM152 General Chemistry II",1,1,1.0,1,6],
+  [58,"WD092X0","CSC121","CSC121 PYTHON PROGRAMMING","CCP DTCS I",0,1,0.0,0,1],
+  [59,"BW405X0","CSC151","CSC151 JAVA Programming","CSC151 JAVA Programming",1,1,1.0,1,1],
+  [60,"WD092X0","CTI110","CTI110 WEB, PROG, DBASE FNDN","CCP DTCS I",0,1,0.0,0,1],
+  [61,"WD092X0","CTI120","CTI120 NETWORK/SECURITY","CCP DTCS I",0,1,0.0,0,1],
+  [62,"WD112X0","EDU119","EDU119 INTRO EARLY CHILD","CCP EDUC I",0,1,0.0,0,1],
+  [63,"FW195X0","EDU131","EDU131 Child Family and Comm","EDU131 Child Family and Comm",1,1,1.0,1,1],
+  [64,"FW215X0","EDU145","EDU145 Child Development II","EDU145 Child Development II",1,1,1.0,1,1],
+  [65,"FW315X0","EDU216","EDU216 Foundations of Educ","EDU216 Foundations of Educ",1,1,1.0,1,1],
+  [66,"1C275X0","ENG261","ENG261 World Literature I","ENG261 World Literature I",1,1,1.0,1,2],
+  [67,"4C035X0","HIS111","HIS111 World Civilizations I","HIS111 World Civilizations I",1,1,1.0,1,7],
+  [68,"WD092X0","NET125","NET125 INTRO NETWORKING (DTCC)","CCP DTCS I",0,1,0.0,0,1],
+  [69,"4C155X0","PSY281","PSY281 Abnormal Psychology","PSY281 Abnormal Psychology",1,1,1.0,1,7],
+  [70,"WD092X0","SEC110","NET125 INTRO NETWORKING (DTCC)","CCP DTCS I",0,1,0.0,0,1],
+  [71,"WD122X0","SPI114","SPI114 ANA SKILL SPAN INT","CCP EDUC II",0,1,0.0,0,1],
+  [72,"WD112X0","SPI241","SPI241 LEGAL INTERPRETING","CCP EDUC I",0,1,0.0,0,1],
+  [73,"WD122X0","SPI245","SPI245 COMMUNITY INTERPR","CCP EDUC II",0,1,0.0,0,1],
+  [74,"4C175X0","ANT210","ANT210 General Anthropology","ANT210 General Anthropology",1,1,1.0,1,7],
+  [75,"4C165X0","ANT220","ANT220 Cultural Anthropology","ANT220 Cultural Anthropology",1,1,1.0,1,7],
+  [76,"5C035X0","ART115","ART115 Art History Survey II","ART115 Art History Survey II",1,1,1.0,1,0],
+  [77,"1D315X0","ASL111","ASL111 Elementary ASL I","ASL111 Elementary ASL I",1,1,1.0,1,8],
+  [78,"3C075X0","BIO112","BIO112 General Biology II","BIO112 General Biology II",1,1,1.0,1,6],
+  [79,"3C275X0","CHM131","CHM131 Intro to Chemistry","CHM131 Intro to Chemistry",1,1,1.0,1,6],
+  [80,"3C345X0","CHM132","CHM132 Organic & Biochemistry","CHM132 Organic & Biochemistry",1,1,1.0,1,6],
+  [81,"IW845X0","CJC111","CJC111 Intro to Crim Justice","CJC111 Intro to Crim Justice",1,1,1.0,1,1],
+  [82,"0C055X0","COM110","COM110 Intro to Communication","COM110 Intro to Communication",1,1,1.0,1,5],
+  [83,"WD172X0","COS111","COS111&224 COSM CONC/TICH&CHEM","CCP HCHS I",0,1,0.0,0,1],
+  [84,"WD172X0","COS112","COS112AB SALON I","CCP HCHS I",0,1,0.0,0,1],
+  [85,"BX265X0","CSC120","CSC120 Computing Fndmntls I","CSC120 Computing Fndmntls I",1,1,1.0,1,1],
+  [86,"IJ055X0","CSC251","CSC251 Adv JAVA Programming","CSC251 Adv JAVA Programming",1,1,1.0,1,1],
+  [87,"FJ025X0","CUL112","CUL112 Nutrition for Foodsrvc","CUL112 Nutrition for Foodsrvc",0,1,0.5,2,1],
+  [88,"IX645X0","DFT170","DFT170 Engineering Graphics","DFT170 Engineering Graphics",1,1,1.0,1,1],
+  [89,"TW175X0","EGR120","Intro to Engineering Design","EGR120 Eng and Design Graphics",1,1,1.0,1,1],
+  [90,"1C325X0","FRE112","FRE112 Elementary French II","FRE112 Elementary French II",1,1,1.0,1,8],
+  [91,"1C385X0","FRE211","FR203 INTERMED FRENCH I UNC","FRE211 Intermediate French I",1,1,1.0,1,8],
+  [92,"4C335X0","GEO111","GEO111 World Reg. Geography","GEO111 World Reg. Geography",1,1,1.0,1,7],
+  [93,"4C765X0","GEO112","GEO112 Cultural Geography","GEO112 Cultural Geography",1,1,1.0,1,7],
+  [94,"1C445X0","GER112","GER112 Elementary German II","GER112 Elementary German II",1,1,1.0,1,8],
+  [95,"6C015X0","HEA110","HEA110 Personal HealthWellness","HEA110 Personal HealthWellness",1,1,1.0,1,3],
+  [96,"0C035X0","HUM115","HUM115 Critical Thinking","HUM115 Critical Thinking",1,1,1.0,1,7],
+  [97,"2C015X0","MAT143","MAT143 Quantitative Literacy","MAT143 Quantitative Literacy",1,1,1.0,1,4],
+  [98,"2C125X0","MAT242","MAT242 CALCULUS III (NCSU)","MAT273 Calculus III",1,1,1.0,1,4],
+  [99,"2C055X0","MAT263","MAT263 Brief Calculus","MAT263 Brief Calculus",1,1,1.0,1,4],
+  [100,"2C125X0","MAT273","MAT273 Calculus III","MAT273 Calculus III",1,1,1.0,1,4],
+  [101,"2C135X0","MAT280","MAT280 Linear Algebra","MAT280 Linear Algebra",1,1,1.0,1,4],
+  [102,"2C145X0","MAT285","MAT285 Differential Equations","MAT285 Differential Equations",1,1,1.0,1,4],
+  [103,"WD172X0","MED121","MED121 MEDICAL TERM I","CCP HCHS I",0,1,0.0,0,1],
+  [104,"5D325X0","MUS111","MUS111 Fundamentals of Music","MUS111 Fundamentals of Music",1,1,1.0,1,0],
+  [105,"3C195X0","PHY151","PHY151 College Physics I","PHY151 College Physics I",1,1,1.0,1,6],
+  [106,"3C215X0","PHY251","PHY251 General Physics I","PHY251 General Physics I",1,1,1.0,1,6],
+  [107,"4C215X0","POL220","POL220 International Relations","POL220 International Relations",1,1,1.0,1,7],
+  [108,"4C785X0","PSY259","PSY259 Human Sexuality","PSY259 Human Sexuality",1,1,1.0,1,7],
+  [109,"4C405X0","PSY263","PSY263 Educational Psychology","PSY263 Educational Psychology",1,1,1.0,1,7],
+  [110,"4C375X0","SOC213","SOC213 Sociology of the Family","SOC213 Sociology of the Family",1,1,1.0,1,7],
+  [111,"4C295X0","SOC225","SOC225 Social Diversity","SOC225 Social Diversity",1,1,1.0,1,7],
+  [112,"4C145X0","SOC240","SOC240 Social Psychology","SOC240 Social Psychology",1,1,1.0,1,7],
+  [113,"1C145X0","SPA111","SPA111 Elementary Spanish I","SPA111 Elementary Spanish I",1,1,1.0,1,8],
+  [114,"1C165X0","SPA112","SPA112 Elementary Spanish II","SPA112 Elementary Spanish II",1,1,1.0,1,8],
+  [115,"BW045X0","ACC121","ACC121 Princ of Mgmt Acct","ACC121 Princ of Mgmt Acct",1,1,1.0,1,1],
+  [116,"WD032X0","ANS115","ANS 115: Animal Feeds & Nutrition","CCP AGRI I",0,1,0.0,0,1],
+  [117,"4C315X0","ANT221","ANT221 Comparative Cultures","ANT221 Comparative Cultures",1,1,1.0,1,7],
+  [118,"4C885X0","ANT230","ANT230 Physical Anthropology","ANT230 Physical Anthropology",1,1,1.0,1,7],
+  [119,"4C325X0","ANT240","ANT240 Archaeology","ANT240 Archaeology",1,1,1.0,1,7],
+  [120,"4C485X0","ANT245","ANT245 World Prehistory","ANT245 World Prehistory",1,1,1.0,1,7],
+  [121,"1D305X0","ARA111","ARA111 Elementary Arabic I","ARA111 Elementary Arabic I",1,1,1.0,1,8],
+  [122,"1C625X0","ARA112","ARA112 Elementary Arabic II","ARA112 Elementary Arabic II",1,1,1.0,1,8],
+  [123,"1C695X0","ARA211","ARA211 Intermediate Arabic I","ARA211 Intermediate Arabic I",1,1,1.0,1,8],
+  [124,"1C935X0","ARA212","ARA212 Intermediate Arabic II","ARA212 Intermediate Arabic II",1,1,1.0,1,8],
+  [125,"5D405X0","ART113","ART113 Art Methods & Materials","ART113 Art Methods & Materials",1,1,1.0,1,0],
+  [126,"5C285X0","ART116","ART116 Survey of American Art","ART116 Survey of American Art",1,1,1.0,1,0],
+  [127,"5C315X0","ART117","ART117 Non-Western Art History","ART117 Non-Western Art History",1,1,1.0,1,0],
+  [128,"5D205X0","ART118","ART118 Art by Women","ART118 Art by Women",1,1,1.0,1,0],
+  [129,"5C075X0","ART121","ART121 Two Dimensional Design","ART121 Two Dimensional Design",1,1,1.0,1,0],
+  [130,"5C085X0","ART122","ART122 Three Dimension. Design","ART122 Three Dimension. Design",1,1,1.0,1,0],
+  [131,"5C065X0","ART131","ART131 Drawing I","ART131 Drawing I",1,1,1.0,1,0],
+  [132,"5C235X0","ART132","ART132 Drawing II","ART132 Drawing II",1,1,1.0,1,0],
+  [133,"5D315X0","ART135","ART135 Figure Drawing I","ART135 Figure Drawing I",1,1,1.0,1,0],
+  [134,"5C365X0","ART171","ART171 Digital Design I","ART171 Digital Design I",1,1,1.0,1,0],
+  [135,"5C425X0","ART212","ART212 Gallery Assistantship I","ART212 Gallery Assistantship I",1,1,1.0,1,0],
+  [136,"5C435X0","ART213","ART213 Gallery Assistantshp II","ART213 Gallery Assistantshp II",1,1,1.0,1,0],
+  [137,"5D435X0","ART215","ART215 Visual Art Portfolio","ART215 Visual Art Portfolio",1,1,1.0,1,0],
+  [138,"5C455X0","ART222","ART222 Wood Design I","ART222 Wood Design I",1,1,1.0,1,0],
+  [139,"5C465X0","ART231","ART231 Printmaking I","ART231 Printmaking I",1,1,1.0,1,0],
+  [140,"5C475X0","ART232","ART232 Printmaking II","ART232 Printmaking II",1,1,1.0,1,0],
+  [141,"5C485X0","ART235","ART235 Figure Drawing II","ART235 Figure Drawing II",1,1,1.0,1,0],
+  [142,"5C095X0","ART240","ART240 Painting I","ART240 Painting I",1,1,1.0,1,0],
+  [143,"5C495X0","ART241","ART241 Painting II","ART241 Painting II",1,1,1.0,1,0],
+  [144,"5C505X0","ART242","ART242 Landscape Painting","ART242 Landscape Painting",1,1,1.0,1,0],
+  [145,"5C515X0","ART243","ART243 Portrait Painting","ART243 Portrait Painting",1,1,1.0,1,0],
+  [146,"5C525X0","ART244","ART244 Watercolor","ART244 Watercolor",1,1,1.0,1,0],
+  [147,"5C535X0","ART245","ART245 Metals I","ART245 Metals I",1,1,1.0,1,0],
+  [148,"5D215X0","ART246","ART246 Metals II","ART246 Metals II",1,1,1.0,1,0],
+  [149,"5C555X0","ART247","ART247 Jewelry I","ART247 Jewelry I",1,1,1.0,1,0],
+  [150,"5D225X0","ART248","ART248 Jewelry II","ART248 Jewelry II",1,1,1.0,1,0],
+  [151,"5C575X0","ART250","ART250 Surface Design: Textile","ART250 Surface Design: Textile",1,1,1.0,1,0],
+  [152,"5D235X0","ART251","ART251 Weaving I","ART251 Weaving I",1,1,1.0,1,0],
+  [153,"5C595X0","ART252","ART252 Weaving II","ART252 Weaving II",1,1,1.0,1,0],
+  [154,"5D245X0","ART260","ART260 Photography Apprec.","ART260 Photography Apprec.",1,1,1.0,1,0],
+  [155,"5C615X0","ART261","ART261 Photography I","ART261 Photography I",1,1,1.0,1,0],
+  [156,"5C625X0","ART262","ART262 Photography II","ART262 Photography II",1,1,1.0,1,0],
+  [157,"5C215X0","ART264","ART264 Digital Photography I","ART264 Digital Photography I",1,1,1.0,1,0],
+  [158,"5C635X0","ART265","ART265 Digital Photography II","ART265 Digital Photography II",1,1,1.0,1,0],
+  [159,"5D255X0","ART266","ART266 Videography I","ART266 Videography I",1,1,1.0,1,0],
+  [160,"5C655X0","ART267","ART267 Videography II","ART267 Videography II",1,1,1.0,1,0],
+  [161,"5C665X0","ART271","ART271 Digital Design II","ART271 Digital Design II",1,1,1.0,1,0],
+  [162,"5C675X0","ART275","ART275 Intro to Commercial Art","ART275 Intro to Commercial Art",1,1,1.0,1,0],
+  [163,"5D455X0","ART276","ART276 Interact. Media Design","ART276 Interact. Media Design",1,1,1.0,1,0],
+  [164,"5C685X0","ART281","ART281 Sculpture I","ART281 Sculpture I",1,1,1.0,1,0],
+  [165,"5C695X0","ART282","ART282 Sculpture II","ART282 Sculpture II",1,1,1.0,1,0],
+  [166,"5C245X0","ART283","ART283 Ceramics I","ART283 Ceramics I",1,1,1.0,1,0],
+  [167,"5C225X0","ART284","ART284 Ceramics II","ART284 Ceramics II",1,1,1.0,1,0],
+  [168,"5C265X0","ART285","ART285 Ceramics III","ART285 Ceramics III",1,1,1.0,1,0],
+  [169,"5C705X0","ART286","ART286 Ceramics IV","ART286 Ceramics IV",1,1,1.0,1,0],
+  [170,"5C295X0","ART288","ART288 Studio","ART288 Studio",1,1,1.0,1,0],
+  [171,"1C785X0","ASL112","ASL112 Elementary ASL II","ASL112 Elementary ASL II",1,1,1.0,1,8],
+  [172,"1C905X0","ASL211","ASL211 Intermediate ASL I","ASL211 Intermediate ASL I",1,1,1.0,1,8],
+  [173,"1C895X0","ASL212","ASL212 Intermediate ASL II","ASL212 Intermediate ASL II",1,1,1.0,1,8],
+  [174,"3C015X0","AST111","AST111 Descriptive Astronomy","AST111 Descriptive Astronomy",1,1,1.0,1,6],
+  [175,"3C235X0","AST152","AST152 General Astronomy II","AST152 General Astronomy II",1,1,1.0,1,6],
+  [176,"WD012X0","ATR112","Intro to Automation","CCP ADMF I",0,1,0.0,0,1],
+  [177,"3C755X0","BIO120","BIO120 Introductory Botany","BIO120 Introductory Botany",1,1,1.0,1,6],
+  [178,"3C135X0","BIO130","BIO130 Introductory Zoology","BIO130 Introductory Zoology",1,1,1.0,1,6],
+  [179,"3C255X0","BIO140","BIO140 Environmental Biology","BIO140 Environmental Biology",1,1,1.0,1,6],
+  [180,"3C765X0","BIO145","BIO145 Ecology","BIO145 Ecology",1,1,1.0,1,6],
+  [181,"3C405X0","BIO146","BIO146 Regional Nat. History","BIO146 Regional Nat. History",1,1,1.0,1,6],
+  [182,"3C415X0","BIO150","BIO150 Genetics Human Affairs","BIO150 Genetics Human Affairs",1,1,1.0,1,6],
+  [183,"3C245X0","BIO155","BIO155 Nutrition","BIO155 Nutrition",1,1,1.0,1,6],
+  [184,"3C145X0","BIO165","BIO165 Anatomy & Physiology I","BIO165 Anatomy & Physiology I",1,1,1.0,1,6],
+  [185,"3C155X0","BIO166","BIO166 Anatomy & Physiology II","BIO166 Anatomy & Physiology II",1,1,1.0,1,6],
+  [186,"3C425X0","BIO175","BIO175 General Microbiology","BIO175 General Microbiology",1,1,1.0,1,6],
+  [187,"3C435X0","BIO180","BIO180 Biological Chemistry","BIO180 Biological Chemistry",1,1,1.0,1,6],
+  [188,"3C455X0","BIO230","BIO230 Entomology","BIO230 Entomology",1,1,1.0,1,6],
+  [189,"3C465X0","BIO242","BIO242 Nat. Res. Conservation","BIO242 Nat. Res. Conservation",1,1,1.0,1,6],
+  [190,"3C475X0","BIO243","BIO243 Marine Biology","BIO243 Marine Biology",1,1,1.0,1,6],
+  [191,"3C485X0","BIO250","BIO250 Genetics","BIO250 Genetics",1,1,1.0,1,6],
+  [192,"3C495X0","BIO265","BIO265 Cell Biology","BIO265 Cell Biology",1,1,1.0,1,6],
+  [193,"3C505X0","BIO271","BIO271 Pathophysiology","BIO271 Pathophysiology",1,1,1.0,1,6],
+  [194,"3C165X0","BIO275","BIO275 Microbiology","BIO275 Microbiology",1,1,1.0,1,6],
+  [195,"3C515X0","BIO280","BIO280 Biotechnology","BIO280 Biotechnology",1,1,1.0,1,6],
+  [196,"BX255X0","BUS228","BUS228 Business Statistics","BUS228 Business Statistics",1,1,1.0,1,1],
+  [197,"1C875X0","CHI111","CHI111 Elementary Chinese I","CHI111 Elementary Chinese I",1,1,1.0,1,8],
+  [198,"1D085X0","CHI112","CHI112 Elementary Chinese II","CHI112 Elementary Chinese II",1,1,1.0,1,8],
+  [199,"1C225X0","CHI211","CHI211 Intermediate Chinese I","CHI211 Intermediate Chinese I",1,1,1.0,1,8],
+  [200,"1C755X0","CHI212","CHI212 Intermediate Chinese II","CHI212 Intermediate Chinese II",1,1,1.0,1,8],
+  [201,"3C525X0","CHM115","CHM115 Concepts in Chemistry","CHM115 Concepts in Chemistry",1,1,1.0,1,6],
+  [202,"3C355X0","CHM130","CHM130 Gen Org & Biochemistry","CHM130 Gen Org & Biochemistry",1,1,1.0,1,6],
+  [203,"3C565X0","CHM135","CHM135 Survey of Chemistry I","CHM135 Survey of Chemistry I",1,1,1.0,1,6],
+  [204,"3C545X0","CHM136","CHM136 Survey of Chemistry II","CHM136 Survey of Chemistry II",1,1,1.0,1,6],
+  [205,"3C285X0","CHM251","CHM251 Organic Chemistry I","CHM251 Organic Chemistry I",1,1,1.0,1,6],
+  [206,"3C575X0","CHM252","CHM252 Organic Chemistry II","CHM252 Organic Chemistry II",1,1,1.0,1,6],
+  [207,"3C585X0","CHM263","CHM263 Analytical Chemistry","CHM263 Analytical Chemistry",1,1,1.0,1,6],
+  [208,"3C595X0","CHM271","CHM271 Biochemical Principles","CHM271 Biochemical Principles",1,1,1.0,1,6],
+  [209,"BW355X0","CIS115","CIS115 Intro to Prog and Logic","CIS115 Intro to Prog and Logic",1,1,1.0,1,1],
+  [210,"IJ015X0","CJC112","Criminology","CJC112 Criminology",0,1,0.5,2,1],
+  [211,"IJ025X0","CJC113","CJC113 Juvenile Justice","CJC113 Juvenile Justice",1,1,1.0,1,1],
+  [212,"IW895X0","CJC121","CJC121 Law Enforcement Ops","CJC121 Law Enforcement Ops",1,1,1.0,1,1],
+  [213,"IJ035X0","CJC131","Criminal Law","CJC131 Criminal Law",0,1,0.5,2,1],
+  [214,"IW935X0","CJC141","CJC141 Corrections","CJC141 Corrections",1,1,1.0,1,1],
+  [215,"BX555X0","CJC212","CJC212 Ethics and Comm Relat","CJC212 Ethics and Comm Relat",1,1,1.0,1,1],
+  [216,"0C395X0","COM111","COM111 Voice and Diction I","COM111 Voice and Diction I",1,1,1.0,1,5],
+  [217,"0C255X0","COM130","COM130 Nonverbal Communication","COM130 Nonverbal Communication",1,1,1.0,1,5],
+  [218,"0C225X0","COM140","COM140 Intro Intercultural Com","COM140 Intro Intercultural Com",1,1,1.0,1,7],
+  [219,"0C285X0","COM150","COM150 Intro to Mass Comm","COM150 Intro to Mass Comm",1,1,1.0,1,5],
+  [220,"0C045X0","COM160","COM160 Small Grp Communication","COM160 Small Grp Communication",1,1,1.0,1,5],
+  [221,"0C405X0","COM251","COM251 Debate I","COM251 Debate I",1,1,1.0,1,5],
+  [222,"CW002X0","COS111A","Cosmetology Concepts I","Comm Coll CTE Less 3 Sem Hrs",0,0,0.0,0,1],
+  [223,"WD182X0","COS111AB","COS 111AB Cosmetology Concepts I","CCP HCHS II",0,1,0.0,0,1],
+  [224,"WD172X0","COS112A","Salon I","CCP HCHS I",0,1,0.0,0,1],
+  [225,"WD172X0","COS112AB","COS 112AB Salon I","CCP HCHS I",0,1,0.0,0,1],
+  [226,"WD182X0","COS113AB","COS 113AB Cosmetology Concepts II","CCP HCHS II",0,1,0.0,0,1],
+  [227,"WD182X0","COS114AB","COS 114AB Salon II","CCP HCHS II",0,1,0.0,0,1],
+  [228,"WD182X0","COS224AB","COS 224AB Trichology & Chemistry","CCP HCHS II",0,1,0.0,0,1],
+  [229,"BX275X0","CSC130","CSC130 Computing Fndmntls II","CSC130 Computing Fndmntls II",1,1,1.0,1,1],
+  [230,"BW365X0","CSC134","CSC134 C++ Programming","CSC134 C++ Programming",1,1,1.0,1,1],
+  [231,"BW385X0","CSC139","CSC139 Visual BASIC Progr","CSC139 Visual BASIC Progr",1,1,1.0,1,1],
+  [232,"BW425X0","CSC239","CSC239 Adv Visual BASIC Progr","CSC239 Adv Visual BASIC Progr",1,1,1.0,1,1],
+  [233,"IJ045X0","CSC249","CSC249 Data Struct and Algor","CSC249 Data Struct and Algor",1,1,1.0,1,1],
+  [234,"BW475X0","CTS115","CTS115 Info Sys Bus Concepts","CTS115 Info Sys Bus Concepts",1,1,1.0,1,1],
+  [235,"WD092X0","CTS120","Hardware/Software Support","CCP DTCS I",0,1,0.0,0,1],
+  [236,"FJ025X0","CUL160","Baking I","CUL160 Baking I",0,1,0.5,2,1],
+  [237,"5C105X0","DAN110","DAN110 Dance Appreciation","DAN110 Dance Appreciation",1,1,1.0,1,0],
+  [238,"5C125X0","DRA112","DRA112 Literature of Theatre","DRA112 Literature of Theatre",1,1,1.0,1,0],
+  [239,"5C765X0","DRA115","DRA115 Theatre Criticism","DRA115 Theatre Criticism",1,1,1.0,1,0],
+  [240,"5D465X0","DRA118","DRA118 Script Analysis","DRA118 Script Analysis",1,1,1.0,1,0],
+  [241,"5C775X0","DRA120","DRA120 Voice for Performance","DRA120 Voice for Performance",1,1,1.0,1,0],
+  [242,"5C135X0","DRA122","DRA122 Oral Interpretation","DRA122 Oral Interpretation",1,1,1.0,1,0],
+  [243,"5C785X0","DRA124","DRA124 Readers Theatre","DRA124 Readers Theatre",1,1,1.0,1,0],
+  [244,"5C305X0","DRA126","DRA126 Storytelling","DRA126 Storytelling",1,1,1.0,1,0],
+  [245,"5C795X0","DRA128","DRA128 Children's Theatre","DRA128 Children's Theatre",1,1,1.0,1,0],
+  [246,"5C145X0","DRA130","DRA130 Acting I","DRA130 Acting I",1,1,1.0,1,0],
+  [247,"5C805X0","DRA131","DRA131 Acting II","DRA131 Acting II",1,1,1.0,1,0],
+  [248,"5C815X0","DRA132","DRA132 Stage Movement","DRA132 Stage Movement",1,1,1.0,1,0],
+  [249,"5C825X0","DRA135","DRA135 Acting for  Camera I","DRA135 Acting for  Camera I",1,1,1.0,1,0],
+  [250,"5C845X0","DRA136","DRA136 Acting for Camera II","DRA136 Acting for Camera II",1,1,1.0,1,0],
+  [251,"5C345X0","DRA140","DRA140 Stagecraft I","DRA140 Stagecraft I",1,1,1.0,1,0],
+  [252,"5C355X0","DRA141","DRA141 Stagecraft II","DRA141 Stagecraft II",1,1,1.0,1,0],
+  [253,"5C865X0","DRA142","DRA142 Costuming","DRA142 Costuming",1,1,1.0,1,0],
+  [254,"5D475X0","DRA144","DRA144 Intro Stage Design","DRA144 Intro Stage Design",1,1,1.0,1,0],
+  [255,"5C905X0","DRA170","DRA170 Play Production I","DRA170 Play Production I",1,1,1.0,1,0],
+  [256,"5C915X0","DRA171","DRA171 Play Production II","DRA171 Play Production II",1,1,1.0,1,0],
+  [257,"5D395X0","DRA175","DRA175 Teleplay Production I","DRA175 Teleplay Production I",1,1,1.0,1,0],
+  [258,"5C945X0","DRA211","DRA211 Theatre History I","DRA211 Theatre History I",1,1,1.0,1,0],
+  [259,"5C965X0","DRA212","DRA212 Theatre History II","DRA212 Theatre History II",1,1,1.0,1,0],
+  [260,"5C995X0","DRA230","DRA230 Acting III","DRA230 Acting III",1,1,1.0,1,0],
+  [261,"5D275X0","DRA231","DRA231 Acting IV","DRA231 Acting IV",1,1,1.0,1,0],
+  [262,"5D285X0","DRA240","DRA240 Lighting for Theatre","DRA240 Lighting for Theatre",1,1,1.0,1,0],
+  [263,"5D295X0","DRA260","DRA260 Directing","DRA260 Directing",1,1,1.0,1,0],
+  [264,"5C375X0","DRA270","DRA270 Play Production III","DRA270 Play Production III",1,1,1.0,1,0],
+  [265,"5D305X0","DRA271","DRA271 Play Production IV","DRA271 Play Production IV",1,1,1.0,1,0],
+  [266,"CU005X0","ECE109","ECE 109 Introduction to Computer Systems","CTE University Course",0,1,1.0,1,1],
+  [267,"4C275X0","ECO151","ECO151 Survey of Economics","ECO151 Survey of Economics",1,1,1.0,1,7],
+  [268,"FW205X0","EDU144","EDU144 Child Development I","EDU144 Child Development I",1,1,1.0,1,1],
+  [269,"WD112X0","EDU146","Child Guidance","CCP EDUC I",0,1,0.0,0,1],
+  [270,"WD112X0","EDU187","Teaching and Learning for All","CCP EDUC I",0,1,0.0,0,1],
+  [271,"FW325X0","EDU221","EDU221 Chdrn Exceptionalities","EDU221 Chdrn Exceptionalities",1,1,1.0,1,1],
+  [272,"FW335X0","EDU250","EDU250 Teacher Licensure Prep","EDU250 Teacher Licensure Prep",1,1,1.0,1,1],
+  [273,"TW545X0","EGR212","EGR212 Logic System Design I","EGR212 Logic System Design I",1,1,1.0,1,1],
+  [274,"TW635X0","EGR214","EGR214 Num Methods for Engrs","EGR214 Num Methods for Engrs",1,1,1.0,1,1],
+  [275,"TW555X0","EGR215","EGR215 Network Theory I","EGR215 Network Theory I",1,1,1.0,1,1],
+  [276,"TW575X0","EGR220","EGR220 Engineering Statics","EGR220 Engineering Statics",1,1,1.0,1,1],
+  [277,"TW585X0","EGR225","EGR225 Engineering Dynamics","EGR225 Engineering Dynamics",1,1,1.0,1,1],
+  [278,"TW595X0","EGR228","EGR228 Intro to Solid Mechs","EGR228 Intro to Solid Mechs",1,1,1.0,1,1],
+  [279,"WD072X2","ELC112","DC/AC Electricity","CCP CONS I (2 Credits)",0,2,0.0,0,1],
+  [280,"WD072X0","ELC115","Industrial Wiring","CCP CONS I",0,1,0.0,0,1],
+  [281,"WD072X0","ELC128","Intro to PLC","CCP CONS I",0,1,0.0,0,1],
+  [282,"WD252X0","EMS110","EMS 110 EMT","CCP PSSA I",0,1,0.0,0,1],
+  [283,"1C665X0","ENG113","ENG113 Lit-Based Research","ENG113 Lit-Based Research",1,1,1.0,1,2],
+  [284,"1C055X0","ENG114","ENG114 Prof Research&Reporting","ENG114 Prof Research&Reporting",1,1,1.0,1,2],
+  [285,"1C235X0","ENG125","ENG125 Creative Writing I","ENG125 Creative Writing I",1,1,1.0,1,2],
+  [286,"1D095X0","ENG126","ENG126 Creative Writing II","ENG126 Creative Writing II",1,1,1.0,1,2],
+  [287,"1D425X0","ENG127","ENG127 Fiction Writing","ENG127 Fiction Writing",1,1,1.0,1,2],
+  [288,"1D435X0","ENG128","ENG128 Poetry Writing","ENG128 Poetry Writing",1,1,1.0,1,2],
+  [289,"1D445X0","ENG129","ENG129 CreativeNonfict Writing","ENG129 CreativeNonfict Writing",1,1,1.0,1,2],
+  [290,"1C065X0","ENG131","ENG131 Intro to Literature","ENG131 Intro to Literature",1,1,1.0,1,2],
+  [291,"1C925X0","ENG132","ENG132 Introduction to Drama","ENG132 Introduction to Drama",1,1,1.0,1,2],
+  [292,"1C955X0","ENG134","ENG134 Introduction to Poetry","ENG134 Introduction to Poetry",1,1,1.0,1,2],
+  [293,"1C095X0","ENG233","ENG233 Major American Writers","ENG233 Major American Writers",1,1,1.0,1,2],
+  [294,"1C975X0","ENG235","ENG235 Survey of Film as Lit","ENG235 Survey of Film as Lit",1,1,1.0,1,2],
+  [295,"1C135X0","ENG243","ENG243 Major British Writers","ENG243 Major British Writers",1,1,1.0,1,2],
+  [296,"1C985X0","ENG251","ENG251 Western World Lit I","ENG251 Western World Lit I",1,1,1.0,1,2],
+  [297,"1C295X0","ENG252","ENG252 Western World Lit II","ENG252 Western World Lit II",1,1,1.0,1,2],
+  [298,"1D105X0","ENG253","ENG253 The Bible as Literature","ENG253 The Bible as Literature",1,1,1.0,1,2],
+  [299,"1C285X0","ENG262","ENG262 World Literature II","ENG262 World Literature II",1,1,1.0,1,2],
+  [300,"1C605X0","ENG271","ENG271 Contemporary Literature","ENG271 Contemporary Literature",1,1,1.0,1,2],
+  [301,"1C675X0","ENG272","ENG272 Southern Literature","ENG272 Southern Literature",1,1,1.0,1,2],
+  [302,"1D115X0","ENG273","ENG273 African-Am. Literature","ENG273 African-Am. Literature",1,1,1.0,1,2],
+  [303,"1D375X0","ENG274","ENG274 Literature by Women","ENG274 Literature by Women",1,1,1.0,1,2],
+  [304,"1C315X0","ENG275","ENG275 Science Fiction","ENG275 Science Fiction",1,1,1.0,1,2],
+  [305,"1C335X0","FRE141","FRE141 Culture & Civilization","FRE141 Culture & Civilization",1,1,1.0,1,8],
+  [306,"1C345X0","FRE151","FRE151 Francophone Literature","FRE151 Francophone Literature",1,1,1.0,1,8],
+  [307,"1C395X0","FRE204","FRE204 INTERM FRE II CNTXT UNC","FRE212 Intermediate French II",1,1,1.0,1,8],
+  [308,"1C395X0","FRE212","FRE212 Intermediate French II","FRE212 Intermediate French II",1,1,1.0,1,8],
+  [309,"1C405X0","FRE221","FRE221 French Conversation","FRE221 French Conversation",1,1,1.0,1,8],
+  [310,"1C415X0","FRE231","FRE231 Reading and Composition","FRE231 Reading and Composition",1,1,1.0,1,8],
+  [311,"3C715X0","GEL113","GEL113 Historical Geology","GEL113 Historical Geology",1,1,1.0,1,6],
+  [312,"3C295X0","GEL120","GEL120 Physical Geology","GEL120 Physical Geology",1,1,1.0,1,6],
+  [313,"3C725X0","GEL230","GEL230 Environmental Geology","GEL230 Environmental Geology",1,1,1.0,1,6],
+  [314,"4C775X0","GEO110","GEO110 Intro to Geography","GEO110 Intro to Geography",1,1,1.0,1,7],
+  [315,"4C755X0","GEO130","GEO130 Gen. Physical Geography","GEO130 Gen. Physical Geography",1,1,1.0,1,7],
+  [316,"4C725X0","GEO131","GEO131 Physical Geography I","GEO131 Physical Geography I",1,1,1.0,1,7],
+  [317,"1C455X0","GER141","GER141 Culture & Civilization","GER141 Culture & Civilization",1,1,1.0,1,8],
+  [318,"1C465X0","GER161","GER161 Cultural Immersion","GER161 Cultural Immersion",1,1,1.0,1,8],
+  [319,"1C495X0","GER211","GER211 Intermediate German I","GER211 Intermediate German I",1,1,1.0,1,8],
+  [320,"1C505X0","GER212","GER212 Intermediate German II","GER212 Intermediate German II",1,1,1.0,1,8],
+  [321,"1C515X0","GER221","GER221 German Conversation","GER221 German Conversation",1,1,1.0,1,8],
+  [322,"1C525X0","GER231","GER231 Reading and Composition","GER231 Reading and Composition",1,1,1.0,1,8],
+  [323,"IW025X0","GIS111","GIS111 Introduction to GIS","GIS111 Introduction to GIS",1,1,1.0,1,1],
+  [324,"6C035X0","HEA120","HEA120 Community Health","HEA120 Community Health",1,1,1.0,1,3],
+  [325,"4C045X0","HIS112","HIS112 World Civilizations II","HIS112 World Civilizations II",1,1,1.0,1,7],
+  [326,"4C715X0","HIS115","HIS115 Intro to Global History","HIS115 Intro to Global History",1,1,1.0,1,7],
+  [327,"4C285X0","HIS116","HIS116 Current World Problems","HIS116 Current World Problems",1,1,1.0,1,7],
+  [328,"4C105X0","HIS121","HIS121 Western Civilization I","HIS121 Western Civilization I",1,1,1.0,1,7],
+  [329,"4C115X0","HIS122","HIS122 Western Civilization II","HIS122 Western Civilization II",1,1,1.0,1,7],
+  [330,"4C845X0","HIS141","HIS141 Genealogy & Local Hist.","HIS141 Genealogy & Local Hist.",1,1,1.0,1,7],
+  [331,"4C705X0","HIS145","HIS145 The Second World War","HIS145 The Second World War",1,1,1.0,1,7],
+  [332,"4C695X0","HIS151","HIS151 Hispanic Civilization","HIS151 Hispanic Civilization",1,1,1.0,1,7],
+  [333,"4C685X0","HIS162","HIS162 Women and History","HIS162 Women and History",1,1,1.0,1,7],
+  [334,"4C665X0","HIS163","HIS163 The World Since 1945","HIS163 The World Since 1945",1,1,1.0,1,7],
+  [335,"4C655X0","HIS165","HIS165 Twentieth-Century World","HIS165 Twentieth-Century World",1,1,1.0,1,7],
+  [336,"4C645X0","HIS167","HIS167 The Vietnam War","HIS167 The Vietnam War",1,1,1.0,1,7],
+  [337,"4C245X0","HIS211","HIS211 Ancient History","HIS211 Ancient History",1,1,1.0,1,7],
+  [338,"4C635X0","HIS212","HIS212 Medieval History","HIS212 Medieval History",1,1,1.0,1,7],
+  [339,"4C625X0","HIS216","HIS216 TwentiethCentury Europe","HIS216 TwentiethCentury Europe",1,1,1.0,1,7],
+  [340,"4C195X0","HIS221","HIS221 African-Am. History","HIS221 African-Am. History",1,1,1.0,1,7],
+  [341,"4C615X0","HIS222","HIS222 African-American Hist I","HIS222 African-American Hist I",1,1,1.0,1,7],
+  [342,"4C605X0","HIS223","HIS223 African-Am. History II","HIS223 African-Am. History II",1,1,1.0,1,7],
+  [343,"4C595X0","HIS226","HIS226 The Civil War","HIS226 The Civil War",1,1,1.0,1,7],
+  [344,"4C345X0","HIS227","HIS227 Native American History","HIS227 Native American History",1,1,1.0,1,7],
+  [345,"4C585X0","HIS228","HIS228 History of the South","HIS228 History of the South",1,1,1.0,1,7],
+  [346,"4C565X0","HIS229","HIS229 Hist. of the Old South","HIS229 Hist. of the Old South",1,1,1.0,1,7],
+  [347,"4C525X0","HIS230","HIS230 The Changing South","HIS230 The Changing South",1,1,1.0,1,7],
+  [348,"4C515X0","HIS231","HIS231 Recent American History","HIS231 Recent American History",1,1,1.0,1,7],
+  [349,"4C495X0","HIS233","HIS233 History of Appalachia","HIS233 History of Appalachia",1,1,1.0,1,7],
+  [350,"4C475X0","HIS234","HIS234 Cherokee History","HIS234 Cherokee History",1,1,1.0,1,7],
+  [351,"4C185X0","HIS236","HIS236 North Carolina History","HIS236 North Carolina History",1,1,1.0,1,7],
+  [352,"4C465X0","HIS237","HIS237 The American Revolution","HIS237 The American Revolution",1,1,1.0,1,7],
+  [353,"4C255X0","HIS260","HIS260 History of Africa","HIS260 History of Africa",1,1,1.0,1,7],
+  [354,"4C415X0","HIS261","HIS261 East Asian History","HIS261 East Asian History",1,1,1.0,1,7],
+  [355,"4C455X0","HIS262","HIS262 Middle East History","HIS262 Middle East History",1,1,1.0,1,7],
+  [356,"4C435X0","HIS271","HIS271 French Revolution Era","HIS271 French Revolution Era",1,1,1.0,1,7],
+  [357,"4C445X0","HIS275","HIS275 History of Terrorism","HIS275 History of Terrorism",1,1,1.0,1,7],
+  [358,"FW505X0","HSE110","HSE110 Intro to Human Services","HSE110 Intro to Human Services",1,1,1.0,1,1],
+  [359,"WD212X0","HSE220","Case Management","CCP MGTE I",0,1,0.0,0,1],
+  [360,"0C095X0","HUM110","HUM110 Technology and Society","HUM110 Technology and Society",1,1,1.0,1,7],
+  [361,"0C185X0","HUM120","HUM120 Cultural Studies","HUM120 Cultural Studies",1,1,1.0,1,7],
+  [362,"0C125X0","HUM121","HUM121 The Nature of America","HUM121 The Nature of America",1,1,1.0,1,5],
+  [363,"0C135X0","HUM122","HUM122 Southern Culture","HUM122 Southern Culture",1,1,1.0,1,5],
+  [364,"0C545X0","HUM123","HUM123 Appalachian Culture","HUM123 Appalachian Culture",1,1,1.0,1,7],
+  [365,"0C105X0","HUM130","HUM130 Myth in Human Culture","HUM130 Myth in Human Culture",1,1,1.0,1,7],
+  [366,"0C265X0","HUM140","HUM140 History of Architecture","HUM140 History of Architecture",1,1,1.0,1,5],
+  [367,"0C195X0","HUM150","HUM150 Amer. Women's Studies","HUM150 Amer. Women's Studies",1,1,1.0,1,7],
+  [368,"0C205X0","HUM160","HUM160 Introduction to Film","HUM160 Introduction to Film",1,1,1.0,1,7],
+  [369,"0C345X0","HUM161","HUM161 Advanced Film Studies","HUM161 Advanced Film Studies",1,1,1.0,1,5],
+  [370,"0C235X0","HUM170","HUM170 The Holocaust","HUM170 The Holocaust",1,1,1.0,1,7],
+  [371,"0C365X0","HUM180","HUM180 Intl Cultural Explor.","HUM180 Intl Cultural Explor.",1,1,1.0,1,5],
+  [372,"0C385X0","HUM211","HUM211 Humanities I","HUM211 Humanities I",1,1,1.0,1,5],
+  [373,"0C415X0","HUM212","HUM212 Humanities II","HUM212 Humanities II",1,1,1.0,1,5],
+  [374,"0C215X0","HUM220","HUM220 Human Values & Meaning","HUM220 Human Values & Meaning",1,1,1.0,1,7],
+  [375,"0C425X0","HUM230","HUM230 Leadership Development","HUM230 Leadership Development",1,1,1.0,1,5],
+  [376,"1D385X0","IRI111","IRI111 Elementary Irish I","IRI111 Elementary Irish I",1,1,1.0,1,8],
+  [377,"1D395X0","IRI112","IRI112 Elementary Irish II","IRI112 Elementary Irish II",1,1,1.0,1,8],
+  [378,"1D405X0","IRI211","IRI211 Intermediate Irish I","IRI211 Intermediate Irish I",1,1,1.0,1,8],
+  [379,"1D415X0","IRI212","IRI212 Intermediate Irish II","IRI212 Intermediate Irish II",1,1,1.0,1,8],
+  [380,"CW002X0","ISC112","Industrial Safety","Comm Coll CTE Less 3 Sem Hrs",0,0,0.0,0,1],
+  [381,"1D075X0","ITA111","ITA111 Elementary Italian I","ITA111 Elementary Italian I",1,1,1.0,1,8],
+  [382,"1C615X0","ITA112","ITA112 Elementary Italian II","ITA112 Elementary Italian II",1,1,1.0,1,8],
+  [383,"1C685X0","ITA211","ITA211 Intermediate Italian I","ITA211 Intermediate Italian I",1,1,1.0,1,8],
+  [384,"1C705X0","ITA212","ITA212 Intermediate Italian II","ITA212 Intermediate Italian II",1,1,1.0,1,8],
+  [385,"1C715X0","ITA221","ITA221 Italian Conversation","ITA221 Italian Conversation",1,1,1.0,1,8],
+  [386,"1C725X0","ITA231","ITA231 Reading and Composition","ITA231 Reading and Composition",1,1,1.0,1,8],
+  [387,"0C435X0","JOU110","JOU110 Intro to Journalism","JOU110 Intro to Journalism",1,1,1.0,1,5],
+  [388,"0C535X0","JOU216","JOU216 Writing for Mass Media","JOU216 Writing for Mass Media",1,1,1.0,1,5],
+  [389,"0C445X0","JOU217","JOU217 Feature/Edit. Writing","JOU217 Feature/Edit. Writing",1,1,1.0,1,5],
+  [390,"1C765X0","JPN111","JPN111 Elementary Japanese I","JPN111 Elementary Japanese I",1,1,1.0,1,8],
+  [391,"1D065X0","JPN112","JPN112 Elementary Japanese II","JPN112 Elementary Japanese II",1,1,1.0,1,8],
+  [392,"1C885X0","JPN211","JPN211 Intermediate Japanese I","JPN211 Intermediate Japanese I",1,1,1.0,1,8],
+  [393,"1C855X0","JPN212","JPN212 Interm. Japanese II","JPN212 Interm. Japanese II",1,1,1.0,1,8],
+  [394,"1D045X0","LAT111","LAT111 Elementary Latin I","LAT111 Elementary Latin I",1,1,1.0,1,8],
+  [395,"1C965X0","LAT112","LAT112 Elementary Latin II","LAT112 Elementary Latin II",1,1,1.0,1,8],
+  [396,"1D015X0","LAT141","LAT141 Culture & Civilization","LAT141 Culture & Civilization",1,1,1.0,1,8],
+  [397,"1C995X0","LAT142","LAT142 Lit & Roman Republic","LAT142 Lit & Roman Republic",1,1,1.0,1,8],
+  [398,"1D025X0","LAT211","LAT211 Intermediate Latin I","LAT211 Intermediate Latin I",1,1,1.0,1,8],
+  [399,"1D125X0","LAT212","LAT212 Intermediate Latin II","LAT212 Intermediate Latin II",1,1,1.0,1,8],
+  [400,"1D135X0","LAT231","LAT231 Reading and Composition","LAT231 Reading and Composition",1,1,1.0,1,8],
+  [401,"1D145X0","LAT232","LAT232 Imperial Literature","LAT232 Imperial Literature",1,1,1.0,1,8],
+  [402,"2C155X0","MAT141","MAT141 Math Concepts I","MAT141 Math Concepts I",1,1,1.0,1,4],
+  [403,"2C165X0","MAT142","MAT142 Math Concepts II","MAT142 Math Concepts II",1,1,1.0,1,4],
+  [404,"2C205X0","MAT167","MATH 381 DISCRETE MATH UNC","MAT167 Discrete Mathematics",1,1,1.0,1,4],
+  [405,"2C185X0","MAT175","MAT175 Precalculus","MAT175 Precalculus",1,1,1.0,1,4],
+  [406,"2C115X0","MAT252","MAT252 Statistics II","MAT252 Statistics II",1,1,1.0,1,4],
+  [407,"WD012X0","MEC111","Machine Processes I","CCP ADMF I",0,1,0.0,0,1],
+  [408,"WD012X0","MEC130","Mechanisms","CCP ADMF I",0,1,0.0,0,1],
+  [409,"CW002X0","MED110","Orientation to Med As","Comm Coll CTE Less 3 Sem Hrs",0,0,0.0,0,1],
+  [410,"WD232X0","MKT120","Principles of Marketing","CCP MRKS I",0,1,0.0,0,1],
+  [411,"WD232X0","MKT123","Fundamentals of Selling","CCP MRKS I",0,1,0.0,0,1],
+  [412,"5C335X0","MUS113","MUS113 American Music","MUS113 American Music",1,1,1.0,1,0],
+  [413,"5C985X0","MUS114","MUS114 Non-Western Music","MUS114 Non-Western Music",1,1,1.0,1,0],
+  [414,"5C155X0","MUS121","MUS121 Music Theory I","MUS121 Music Theory I",1,1,1.0,1,0],
+  [415,"5D005X0","MUS122","MUS122 Music Theory II","MUS122 Music Theory II",1,1,1.0,1,0],
+  [416,"5D415X0","MUS170","MUS170 Business of Music","MUS170 Business of Music",1,1,1.0,1,0],
+  [417,"5C855X0","MUS173","MUS173 Opera Production I","MUS173 Opera Production I",1,1,1.0,1,0],
+  [418,"5C875X0","MUS174","MUS174 Opera Production II","MUS174 Opera Production II",1,1,1.0,1,0],
+  [419,"5C895X0","MUS181","MUS181 Show Choir I","MUS181 Show Choir I",1,1,1.0,1,0],
+  [420,"5C925X0","MUS182","MUS182 Show Choir II","MUS182 Show Choir II",1,1,1.0,1,0],
+  [421,"5C255X0","MUS210","MUS210 History of Rock Music","MUS210 History of Rock Music",1,1,1.0,1,0],
+  [422,"5C935X0","MUS211","MUS211 Hist of Country Music","MUS211 Hist of Country Music",1,1,1.0,1,0],
+  [423,"5C955X0","MUS212","MUS212 Amer Musical Theatre","MUS212 Amer Musical Theatre",1,1,1.0,1,0],
+  [424,"5C975X0","MUS213","MUS213 Opera & Musical Theatre","MUS213 Opera & Musical Theatre",1,1,1.0,1,0],
+  [425,"5D085X0","MUS221","MUS221 Music Theory III","MUS221 Music Theory III",1,1,1.0,1,0],
+  [426,"5D095X0","MUS222","MUS222 Music Theory IV","MUS222 Music Theory IV",1,1,1.0,1,0],
+  [427,"5C585X0","MUS271","MUS271 Music History I","MUS271 Music History I",1,1,1.0,1,0],
+  [428,"5D335X0","MUS272","MUS272 Music History II","MUS272 Music History II",1,1,1.0,1,0],
+  [429,"5C605X0","MUS273","MUS273 Opera Production III","MUS273 Opera Production III",1,1,1.0,1,0],
+  [430,"5D345X0","MUS274","MUS274 Opera Production IV","MUS274 Opera Production IV",1,1,1.0,1,0],
+  [431,"5D355X0","MUS280","MUS280 Music for EL Classroom","MUS280 Music for EL Classroom",1,1,1.0,1,0],
+  [432,"5D365X0","MUS281","MUS281 Show Choir III","MUS281 Show Choir III",1,1,1.0,1,0],
+  [433,"5C645X0","MUS282","MUS282 Show Choir IV","MUS282 Show Choir IV",1,1,1.0,1,0],
+  [434,"WD182X2","NAS102","Nurse Aide II","CCP HCHS II (2 Credits)",0,2,0.0,0,1],
+  [435,"HJ015X0","NAS111","Nursing Assistant I","NAS111 Nursing Assistant I",0,2,0.5,2,1],
+  [436,"WD102X0","NET126","NET126 Switching and Routing","CCP DTCS II",0,1,0.0,0,1],
+  [437,"6C125X0","PED165","PED165 Sport Science as Career","PED165 Sport Science as Career",1,1,1.0,1,3],
+  [438,"0C375X0","PHI210","PHI210 History of Philosophy","PHI210 History of Philosophy",1,1,1.0,1,5],
+  [439,"0C355X0","PHI220","PHI220 Western Philosophy I","PHI220 Western Philosophy I",1,1,1.0,1,5],
+  [440,"0C295X0","PHI230","PHI230 Introduction to Logic","PHI230 Introduction to Logic",1,1,1.0,1,5],
+  [441,"3C705X0","PHS110","PHS110 Survey of Phys Science","PHS110 Survey of Phys Science",1,1,1.0,1,6],
+  [442,"3C395X0","PHS130","PHS130 Earth Science","PHS130 Earth Science",1,1,1.0,1,6],
+  [443,"3C115X0","PHY110","PHY110 Conceptual Physics","PHY110 Conceptual Physics",1,1,1.0,1,6],
+  [444,"3C205X0","PHY152","PHY152 College Physics II","PHY152 College Physics II",1,1,1.0,1,6],
+  [445,"3C225X0","PHY252","PHY252 General Physics II","PHY252 General Physics II",1,1,1.0,1,6],
+  [446,"4C395X0","POL110","POL110 Intro to Pol. Science","POL110 Intro to Pol. Science",1,1,1.0,1,7],
+  [447,"4C835X0","POL130","POL130 State&LocalGovernment","POL130 State&LocalGovernment",1,1,1.0,1,7],
+  [448,"4C205X0","POL210","POL210 Comparative Government","POL210 Comparative Government",1,1,1.0,1,7],
+  [449,"4C855X0","POL250","POL250 Intro to Pol. Theory","POL250 Intro to Pol. Theory",1,1,1.0,1,7],
+  [450,"1C555X0","POR111","POR111 Elementary Portuguese I","POR111 Elementary Portuguese I",1,1,1.0,1,8],
+  [451,"1C565X0","POR112","POR112 Elem. Portuguese II","POR112 Elem. Portuguese II",1,1,1.0,1,8],
+  [452,"1C575X0","POR141","POR141 Culture & Civilization","POR141 Culture & Civilization",1,1,1.0,1,8],
+  [453,"1D175X0","POR211","POR211 Intermed Portuguese I","POR211 Intermed Portuguese I",1,1,1.0,1,8],
+  [454,"1D185X0","POR212","POR212 Intermed Portuguese II","POR212 Intermed Portuguese II",1,1,1.0,1,8],
+  [455,"1D195X0","POR221","POR221 Portuguese Conversation","POR221 Portuguese Conversation",1,1,1.0,1,8],
+  [456,"1D205X0","POR231","POR231 Reading and Composition","POR231 Reading and Composition",1,1,1.0,1,8],
+  [457,"4C825X0","PSY211","PSY211 Psych. of Adjustment","PSY211 Psych. of Adjustment",1,1,1.0,1,7],
+  [458,"4C225X0","PSY215","PSY215 Positive Psychology","PSY215 Positive Psychology",1,1,1.0,1,7],
+  [459,"4C895X0","PSY230","PSY230 Biological Psychology","PSY230 Biological Psychology",1,1,1.0,1,7],
+  [460,"4C355X0","PSY231","PSY231 Forensic Psychology","PSY231 Forensic Psychology",1,1,1.0,1,7],
+  [461,"4C235X0","PSY237","PSY237 Social Psychology","PSY237 Social Psychology",1,1,1.0,1,7],
+  [462,"4C385X0","PSY239","PSY239 Psych. of Personality","PSY239 Psych. of Personality",1,1,1.0,1,7],
+  [463,"4C815X0","PSY243","PSY243 Child Psychology","PSY243 Child Psychology",1,1,1.0,1,7],
+  [464,"4C805X0","PSY246","PSY246 Adolescent Psychology","PSY246 Adolescent Psychology",1,1,1.0,1,7],
+  [465,"4C795X0","PSY249","PSY249 Psychology of Aging","PSY249 Psychology of Aging",1,1,1.0,1,7],
+  [466,"4C735X0","PSY271","PSY271 Sports Psychology","PSY271 Sports Psychology",1,1,1.0,1,7],
+  [467,"4C675X0","PSY275","PSY275 Health Psychology","PSY275 Health Psychology",1,1,1.0,1,7],
+  [468,"WD072X0","PTE111","Pathway to Employ-Manufacture","CCP CONS I",0,1,0.0,0,1],
+  [469,"0C115X0","REL110","REL110 World Religions","REL110 World Religions",1,1,1.0,1,7],
+  [470,"0C245X0","REL111","REL111 Eastern Religions","REL111 Eastern Religions",1,1,1.0,1,5],
+  [471,"0C275X0","REL112","REL112 Western Religions","REL112 Western Religions",1,1,1.0,1,5],
+  [472,"0C155X0","REL211","REL211 Intro to Old Testament","REL211 Intro to Old Testament",1,1,1.0,1,5],
+  [473,"0C175X0","REL212","REL212 Intro to New Testament","REL212 Intro to New Testament",1,1,1.0,1,7],
+  [474,"0C165X0","REL221","REL221 Religion in America","REL221 Religion in America",1,1,1.0,1,5],
+  [475,"1C255X0","RUS111","RUS111 Elementary Russian I","RUS111 Elementary Russian I",1,1,1.0,1,8],
+  [476,"1D235X0","RUS112","RUS112 Elementary Russian II","RUS112 Elementary Russian II",1,1,1.0,1,8],
+  [477,"1C805X0","RUS211","RUS211 Intermediate Russian I","RUS211 Intermediate Russian I",1,1,1.0,1,8],
+  [478,"1D255X0","RUS212","RUS212 Intermediate Russian II","RUS212 Intermediate Russian II",1,1,1.0,1,8],
+  [479,"1D265X0","RUS221","RUS221 Russian Conversation","RUS221 Russian Conversation",1,1,1.0,1,8],
+  [480,"1D275X0","RUS231","RUS231 Reading and Composition","RUS231 Reading and Composition",1,1,1.0,1,8],
+  [481,"WD052X0","SGD111","Introduction to SGD","CCP ARED I",0,1,0.0,0,1],
+  [482,"WD052X0","SGD112","SGD Design I","CCP ARED I",0,1,0.0,0,1],
+  [483,"4C865X0","SOC215","SOC215 Group Processes","SOC215 Group Processes",1,1,1.0,1,7],
+  [484,"4C125X0","SOC220","SOC220 Social Problems","SOC220 Social Problems",1,1,1.0,1,7],
+  [485,"4C365X0","SOC230","SOC230 Race & Ethnic Relations","SOC230 Race & Ethnic Relations",1,1,1.0,1,7],
+  [486,"4C265X0","SOC232","SOC232 Social Context of Aging","SOC232 Social Context of Aging",1,1,1.0,1,7],
+  [487,"4C305X0","SOC234","SOC234 Sociology of Gender","SOC234 Sociology of Gender",1,1,1.0,1,7],
+  [488,"4C575X0","SOC242","SOC242 Sociology of Deviance","SOC242 Sociology of Deviance",1,1,1.0,1,7],
+  [489,"4C555X0","SOC244","SOC244 Soc of Death and Dying","SOC244 Soc of Death and Dying",1,1,1.0,1,7],
+  [490,"4C545X0","SOC245","SOC245 Drugs and Society","SOC245 Drugs and Society",1,1,1.0,1,7],
+  [491,"4C535X0","SOC250","SOC250 Sociology of Religion","SOC250 Sociology of Religion",1,1,1.0,1,7],
+  [492,"4C875X0","SOC254","SOC254 Rural & Urban Sociology","SOC254 Rural & Urban Sociology",1,1,1.0,1,7],
+  [493,"1D285X0","SPA141","SPA141 Culture & Civilization","SPA141 Culture & Civilization",1,1,1.0,1,8],
+  [494,"1D295X0","SPA161","SPA161 Cultural Immersion","SPA161 Cultural Immersion",1,1,1.0,1,8],
+  [495,"1C195X0","SPA211","SPA211 Intermediate Spanish I","SPA211 Intermediate Spanish I",1,1,1.0,1,8],
+  [496,"1C205X0","SPA212","SPA212 Intermediate Spanish II","SPA212 Intermediate Spanish II",1,1,1.0,1,8],
+  [497,"1C215X0","SPA221","SPA221 Spanish Conversation","SPA221 Spanish Conversation",1,1,1.0,1,8],
+  [498,"1D325X0","SPA231","SPA231 Reading and Composition","SPA231 Reading and Composition",1,1,1.0,1,8],
+  [499,"TJ565X0","TEX110","TEX110 Fndmntls of Textiles","TEX110 Fndmntls of Textiles",1,1,1.0,1,1],
+  [500,"TJ575X0","TEX210","TEX210 Fiber Science","TEX210 Fiber Science",2,2,1.0,1,1],
+  [501,"CW002X0","WLD110","Cutting Processes","Comm Coll CTE Less 3 Sem Hrs",0,0,0.0,0,1],
+  [502,"CW002X0","WLD112","Basic Welding Processes","Comm Coll CTE Less 3 Sem Hrs",0,0,0.0,0,1],
+  [503,"WD012X0","WLD121","WLD121 Welding I (GMAW (MIG) FCAW/Plate)","CCP ADMF I",0,1,0.0,0,1],
+  [504,"CW002X0","WLD121AB","GMAW (MIG) FCAW/Plate","Comm Coll CTE Less 3 Sem Hrs",0,0,0.0,0,1],
+  [505,"WD012X0","WLD141","Symbols & Specifications","CCP ADMF I",0,1,0.0,0,1],
+  [506,"WD012X0","WLD151","Fabrication I","CCP ADMF II",0,1,0.0,0,1],
+  [507,"WD072X2","AHR110","Intro to Refrigeration","CCP CONS I (2 Credits)",0,2,0.0,0,1],
+  [508,"WD082X0","ARC111","Intro to Arch Technology","CCP CONS II",0,1,0.0,0,1],
+  [509,"WD072X0","ARC112","Constr Matls & Methods","CCP CONS I",0,1,0.0,0,1],
+  [510,"WD072X0","ARC114","Architectural CAD","CCP CONS I",0,1,0.0,0,1],
+  [511,"WD272X0","AUT141","Suspension & Steering Sys","CCP SCTR I",0,1,0.0,0,1],
+  [512,"WD212X0","BUS153","Human Resource Management","CCP MGTE I",0,1,0.0,0,1],
+  [513,"WD102X0","CTS220","Adv Hard/Software Support","CCP DTCS II",0,1,0.0,0,1],
+  [514,"CU005X0","EGR150","Intro to Engineering","CTE University Course",0,1,1.0,1,1],
+  [515,"WD172X0","HSC110","Orientation to Health Careers","CCP HCHS I",0,1,0.0,0,1],
+  [516,"WD182X0","MED122","Medical Terminology II","CCP HCHS II",0,1,0.0,0,1],
+  [517,"WD012X0","MNT110","Intro to Maint Procedures","CCP ADMF I",0,1,0.0,0,1],
+  [518,"WD102X0","NET225","Enterprise Networking","CCP DTCS II",0,1,0.0,0,1],
+  [519,"WD102X0","SEC160","Security Administration I","CCP DTCS II",0,1,0.0,0,1],
+  [520,"WD112X0","SPI111","Cultural & Ethical Issues","CCP EDUC I",0,1,0.0,0,1],
+  [521,"WD112X0","SPI213","Review of Grammar","CCP EDUC I",0,1,0.0,0,1],
+  [522,"WD122X0","SPI214","Intro. to Translation","CCP EDUC II",0,1,0.0,0,1],
+  [523,"WD112X0","SPI243","Medical Interpreting I","CCP EDUC I",0,1,0.0,0,1],
+  [524,"WD272X0","TRN110","Intro to Transport Tech","CCP SCTR I",0,1,0.0,0,1],
+  [525,"WD272X2","TRN120","Basic Transp Electricity","CCP SCTR I (2 Credits)",0,2,0.0,0,1],
+  [526,"WD092X0","WEB110","Web Development Fundamentals","CCP DTCS I",0,1,0.0,0,1],
+  [527,"WD012X2","WLD115","SMAW (Stick) Plate","CCP ADMF I (2 Credits)",0,2,0.0,0,1]
+];
+
+const courses = rawData.map(r => ({
+  id: r[0],
+  state_code: r[1],
+  course_code: r[2],
+  course_name: r[3],
+  master_label: r[4],
+  caa: r[5],
+  caa_label: r[5] === 1 ? "Eligible" : "Non-transfer",
+  credit: r[6],
+  added_value: r[7],
+  course_weight: weights[r[8]],
+  department: depts[r[9]]
+}));
+
+const pageSize = 25;
+let page = 1;
+let sortKey = "state_code";
+let sortDirection = 1;
+
+const searchEl = document.getElementById("search");
+const departmentEl = document.getElementById("department");
+const caaEl = document.getElementById("caa");
+const weightEl = document.getElementById("weight");
+const rowsEl = document.getElementById("rows");
+
+function valueText(value) { return value === null || value === undefined ? "" : String(value); }
+function uniqueValues(key) {
+  return [...new Set(courses.map(row => valueText(row[key])).filter(Boolean))]
+    .sort((a,b) => a.localeCompare(b, undefined, {numeric:true, sensitivity:"base"}));
+}
+function fillSelect(select, values) {
+  values.forEach(value => {
+    const option = document.createElement("option");
+    option.value = value; option.textContent = value; select.appendChild(option);
+  });
+}
+fillSelect(departmentEl, uniqueValues("department"));
+fillSelect(caaEl, uniqueValues("caa_label"));
+fillSelect(weightEl, uniqueValues("course_weight"));
+
+function filteredCourses() {
+  const query = searchEl.value.trim().toLowerCase();
+  return courses.filter(row => {
+    const matchesQuery = !query || Object.values(row).some(value => valueText(value).toLowerCase().includes(query));
+    return matchesQuery &&
+      (!departmentEl.value || valueText(row.department) === departmentEl.value) &&
+      (!caaEl.value || valueText(row.caa_label) === caaEl.value) &&
+      (!weightEl.value || valueText(row.course_weight) === weightEl.value);
+  }).sort((a,b) => {
+    const av = a[sortKey], bv = b[sortKey];
+    const an = Number(av), bn = Number(bv);
+    const bothNumeric = av !== "" && bv !== "" && Number.isFinite(an) && Number.isFinite(bn);
+    const comparison = bothNumeric ? an - bn : valueText(av).localeCompare(valueText(bv), undefined, {numeric:true, sensitivity:"base"});
+    return comparison * sortDirection;
+  });
+}
+
+function render() {
+  const filtered = filteredCourses();
+  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
+  page = Math.min(page, pageCount);
+  const start = (page - 1) * pageSize;
+  const visible = filtered.slice(start, start + pageSize);
+  rowsEl.replaceChildren();
+
+  visible.forEach(row => {
+    const tr = document.createElement("tr");
+    const cells = [
+      ["state_code", "code"],
+      ["course_code", "code"],
+      ["course_name", ""],
+      ["department", ""],
+      ["caa_label", ""],
+      ["credit", "code"],
+      ["course_weight", ""],
+      ["master_label", ""]
+    ];
+    cells.forEach(([key, className]) => {
+      const td = document.createElement("td");
+      const val = valueText(row[key]);
+      
+      if (key === "caa_label") {
+        const span = document.createElement("span");
+        span.className = "pill pill-caa";
+        span.dataset.caa = val;
+        span.textContent = val;
+        td.appendChild(span);
+      } else if (key === "department") {
+        const span = document.createElement("span");
+        span.className = "pill pill-dept";
+        span.dataset.dept = val;
+        span.textContent = val;
+        td.appendChild(span);
+      } else if (key === "course_weight") {
+        const span = document.createElement("span");
+        span.className = "pill pill-weight";
+        span.dataset.weight = val;
+        span.textContent = val;
+        td.appendChild(span);
+      } else if (className === "code") {
+        const span = document.createElement("span");
+        span.className = "code";
+        span.textContent = val;
+        td.appendChild(span);
+      } else {
+        td.textContent = val;
+      }
+      tr.appendChild(td);
+    });
+    rowsEl.appendChild(tr);
+  });
+
+  document.getElementById("empty").hidden = filtered.length !== 0;
+  document.getElementById("count").textContent = `Showing ${filtered.length ? start + 1 : 0}–${Math.min(start + pageSize, filtered.length)} of ${filtered.length} matching courses · ${courses.length} total`;
+  document.getElementById("page").textContent = `Page ${page} of ${pageCount}`;
+  document.getElementById("previous").disabled = page <= 1;
+  document.getElementById("next").disabled = page >= pageCount;
+}
+
+[searchEl, departmentEl, caaEl, weightEl].forEach(el => el.addEventListener("input", () => { page = 1; render(); }));
+document.getElementById("reset").addEventListener("click", () => {
+  searchEl.value = ""; departmentEl.value = ""; caaEl.value = ""; weightEl.value = ""; page = 1; render();
+});
+document.querySelectorAll("th button[data-sort]").forEach(button => button.addEventListener("click", () => {
+  const key = button.dataset.sort;
+  if (sortKey === key) sortDirection *= -1; else { sortKey = key; sortDirection = 1; }
+  render();
+}));
+document.getElementById("previous").addEventListener("click", () => { page--; render(); });
+document.getElementById("next").addEventListener("click", () => { page++; render(); });
+render();
+</script>
+</body>
+</html>
